@@ -7,15 +7,24 @@
 //
 
 import Cocoa
+import Foundation
 import AVFoundation
 
 class PlaybackViewController: NSViewController {
     
+    // MARK: AVFoundation variables
+    
     let captureSession = AVCaptureSession()
     var captureDevice: AVCaptureDevice?
-    var previewLayerOne: AVCaptureVideoPreviewLayer?
-    var previewPanelOne: NSView!
+    var previewLayer: AVCaptureVideoPreviewLayer?
+    var previewPanel: NSView!
     
+    // MARK: CGEvents
+    // TODO ghetto af, make customizable
+
+    let pressJ: CGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true)!
+    let letgoJ: CGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: false)!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,25 +35,34 @@ class PlaybackViewController: NSViewController {
                 captureDevice = device as? AVCaptureDevice
             }
         }
-        
-        Swift.print("Starting...")
-        
+                
         do {
             let deviceInput = try AVCaptureDeviceInput(device: captureDevice)
             captureSession.addInput(deviceInput)
             
-            previewPanelOne = self.view.subviews.first // get out the custom view
-            previewLayerOne = AVCaptureVideoPreviewLayer(session: captureSession)
-            previewLayerOne!.frame = (self.view.subviews.first?.bounds)!
+            previewPanel = self.view.subviews.first // get out the custom view
+            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            previewLayer!.frame = self.view.bounds
             
-            previewLayerOne!.videoGravity = AVLayerVideoGravityResizeAspectFill
-            previewPanelOne.layer?.addSublayer(previewLayerOne!)
-            captureSession.startRunning()
-        
+            previewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
+            previewPanel.layer?.addSublayer(previewLayer!)
+            
         } catch let error as NSError {
             Swift.print("Error: no valid camera input in \(error.domain)")
         }
         
+    }
+    
+    public func startCamera() {
+        captureSession.startRunning()
+        pressJ.post(tap: CGEventTapLocation.cghidEventTap) // TODO so this is just creating one tap
+    }
+    
+    public func stopCamera() {
+        if captureSession.isRunning {
+            captureSession.stopRunning()
+            letgoJ.post(tap: CGEventTapLocation.cghidEventTap)
+        }
     }
 
     override var representedObject: Any? {

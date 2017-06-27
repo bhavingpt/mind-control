@@ -687,11 +687,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView wantsLayer="YES" canDrawConcurrently="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQD-9o-dKm">
-                                <rect key="frame" x="0.0" y="0.0" width="241" height="270"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </customView>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Mq-Zc-21I">
-                                <rect key="frame" x="239" y="0.0" width="241" height="270"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
                         </subviews>

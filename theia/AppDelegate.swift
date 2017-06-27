@@ -10,15 +10,17 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
+    
+    var vc: PlaybackViewController?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSWorkspace.shared().notificationCenter.addObserver(self,
                                                             selector: #selector(activated),
                                                             name: NSNotification.Name.NSWorkspaceDidActivateApplication,
                                                             object: nil)
+        
+        vc = NSApplication.shared().mainWindow?.windowController?.contentViewController as? PlaybackViewController
     }
-
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
@@ -29,9 +31,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let app = info[NSWorkspaceApplicationKey] as? NSRunningApplication,
             let name = app.localizedName {
             if (name == "Emacs") {
-                print ("hi emacs!")
+                vc!.startCamera()
             } else {
-                print ("no emacs!")
+                vc!.stopCamera()
             }
         }
     }
