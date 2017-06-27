@@ -18,12 +18,6 @@ class PlaybackViewController: NSViewController {
     var captureDevice: AVCaptureDevice?
     var previewLayer: AVCaptureVideoPreviewLayer?
     var previewPanel: NSView!
-    
-    // MARK: CGEvents
-    // TODO ghetto af, make customizable
-
-    let pressJ: CGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true)!
-    let letgoJ: CGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: false)!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,13 +49,13 @@ class PlaybackViewController: NSViewController {
     
     public func startCamera() {
         captureSession.startRunning()
-        pressJ.post(tap: CGEventTapLocation.cghidEventTap) // TODO so this is just creating one tap
+        self.tapButton(button: 38)
     }
     
     public func stopCamera() {
         if captureSession.isRunning {
             captureSession.stopRunning()
-            letgoJ.post(tap: CGEventTapLocation.cghidEventTap)
+            // TODO stop all keypresses by force
         }
     }
 
@@ -69,6 +63,16 @@ class PlaybackViewController: NSViewController {
         didSet {
         // Update the view, if already loaded.
         }
+    }
+    
+    func tapButton(button: CGKeyCode) {
+        let event = CGEvent(keyboardEventSource: nil, virtualKey: button, keyDown: true)
+        event?.post(tap: CGEventTapLocation.cgSessionEventTap)
+    }
+    
+    func untapButton(button: CGKeyCode) {
+        let event = CGEvent(keyboardEventSource: nil, virtualKey: button, keyDown: false)
+        event?.post(tap: CGEventTapLocation.cgSessionEventTap)
     }
 
 
