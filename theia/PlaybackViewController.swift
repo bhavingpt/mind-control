@@ -46,7 +46,7 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
         self.output.videoSettings = [ kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32BGRA)]
         let queue: DispatchQueue = DispatchQueue(label: "videocapturequeue", attributes: [])
         self.output.setSampleBufferDelegate(self, queue: queue)
-        self.output.alwaysDiscardsLateVideoFrames = true
+        self.output.alwaysDiscardsLateVideoFrames = false
         
         if self.session.canAddOutput(self.output) {
             self.session.addOutput(self.output)

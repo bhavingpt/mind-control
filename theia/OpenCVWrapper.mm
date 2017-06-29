@@ -8,8 +8,10 @@
 
 #import <opencv2/opencv.hpp>
 
-#import <dlib/image_processing.h>
 #import <dlib/image_processing/frontal_face_detector.h>
+#import <dlib/image_processing/shape_predictor.h>
+#import <dlib/image_processing.h>
+#import <dlib/opencv/cv_image.h>
 
 #import "OpenCVWrapper.h"
 
@@ -86,11 +88,33 @@ static NSImage *MatToNSImage(cv::Mat &mat) {
 + (NSImage*) detect:(NSImage*) pic {
     Mat input;
     NSImageToMat(pic, input);
-    Mat output;
-    cvtColor(input, output, CV_BGR2GRAY);
     
-    NSImage *result = MatToNSImage(output);
-    return result;
+    dlib::array2d<dlib::rgb_pixel> dlibimg;
+    dlib::assign_image(dlibimg, dlib::cv_image<dlib::bgr_pixel>(input));
+    
+    dlib::shape_predictor sp;
+    
+    try {
+        NSString *modelFileName = [[NSBundle mainBundle] pathForResource:@"shape_predictor_68_face_landmarks" ofType:@"dat"];
+        std::string modelFileNameCString = [modelFileName UTF8String];
+        
+        dlib::deserialize(modelFileNameCString) >> sp;
+    } catch (...) {
+        std::cout << "nope";
+        return nil;
+    }
+    
+    dlib::frontal_face_detector detector = dlib::get_frontal_face_detector();
+    
+    std::vector<dlib::rectangle> test = detector(dlibimg);
+    std::vector<dlib::full_object_detection> shapes;
+    
+    for (int j = 0; j < test.size(); j++) {
+        dlib::full_object_detection shape = sp(dlibimg, test[0]);
+        shapes.push_back(shape);
+    }
+    
+    return pic;
 }
 
 @end

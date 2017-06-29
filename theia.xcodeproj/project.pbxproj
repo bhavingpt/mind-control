@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F18970551F04DC37007B3E65 /* shape_predictor_68_face_landmarks.dat in Resources */ = {isa = PBXBuildFile; fileRef = F18970541F04DC37007B3E65 /* shape_predictor_68_face_landmarks.dat */; };
 		F1AB06701F02B8AC0054EC41 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AB066F1F02B8AC0054EC41 /* opencv2.framework */; };
 		F1E239AD1F022092005A402A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E239AC1F022092005A402A /* AppDelegate.swift */; };
 		F1E239AF1F022092005A402A /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E239AE1F022092005A402A /* PlaybackViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F18970541F04DC37007B3E65 /* shape_predictor_68_face_landmarks.dat */ = {isa = PBXFileReference; lastKnownFileType = file; name = shape_predictor_68_face_landmarks.dat; path = theia/shape_predictor_68_face_landmarks.dat; sourceTree = "<group>"; };
 		F1AB066F1F02B8AC0054EC41 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		F1E239A91F022092005A402A /* theia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E239AC1F022092005A402A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		F1E239A01F022092005A402A = {
 			isa = PBXGroup;
 			children = (
+				F18970541F04DC37007B3E65 /* shape_predictor_68_face_landmarks.dat */,
 				F1E239AB1F022092005A402A /* theia */,
 				F1E239AA1F022092005A402A /* Products */,
 				F11F28331F04BCE3004C226C /* Frameworks */,
@@ -147,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F18970551F04DC37007B3E65 /* shape_predictor_68_face_landmarks.dat in Resources */,
 				F1E239B11F022092005A402A /* Assets.xcassets in Resources */,
 				F1E239B41F022092005A402A /* Main.storyboard in Resources */,
 			);
