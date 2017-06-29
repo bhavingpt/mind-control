@@ -9,9 +9,12 @@
 #import <opencv2/opencv.hpp>
 #import "OpenCVWrapper.h"
 
+#import <dlib/image_processing.h>
+#import <dlib/image_io.h>
+
 using namespace std;
 using namespace cv;
-
+using namespace dlib;
 
 /// Converts an NSImage to Mat.
 static void NSImageToMat(NSImage *image, cv::Mat &mat) {
