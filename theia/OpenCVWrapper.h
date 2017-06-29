@@ -9,8 +9,8 @@
 #import <AppKit/AppKit.h>
 #import <Foundation/Foundation.h>
 
-@interface OpenCVWrapper : NSObject
+@interface cv : NSObject
 
-- (NSImage *)process:(NSImage*)inputImage;
++ (NSImage *)process:(NSImage*)inputImage;
 
 @end

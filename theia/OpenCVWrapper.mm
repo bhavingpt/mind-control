@@ -72,11 +72,11 @@ static NSImage *MatToNSImage(cv::Mat &mat) {
 - (NSImage*) process:(NSImage*) pic {
     Mat input;
     NSImageToMat(pic, input);
-    
     Mat output;
-    cvtColor(input, output, CV_BGR2GRAY);
+    cvtColor(input, output, CV_BGR2GRAY)
     
     NSImage *result = MatToNSImage(output);
-    return result;
+    
+    return inputImage;
 }
 @end
