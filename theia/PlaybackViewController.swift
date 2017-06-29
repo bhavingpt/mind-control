@@ -64,7 +64,6 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
     public func stopCamera() {
         if (self.session.isRunning) {
             self.session.stopRunning()
-            self.imageView.image = nil
         }
     }
     

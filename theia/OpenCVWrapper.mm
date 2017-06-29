@@ -9,6 +9,8 @@
 #import <opencv2/opencv.hpp>
 #import "OpenCVWrapper.h"
 
+#import <dlib/image_processing.h>
+
 using namespace std;
 using namespace cv;
 

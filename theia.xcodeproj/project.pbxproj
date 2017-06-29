@@ -13,6 +13,8 @@
 		F1E239B11F022092005A402A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1E239B01F022092005A402A /* Assets.xcassets */; };
 		F1E239B41F022092005A402A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1E239B21F022092005A402A /* Main.storyboard */; };
 		F1E239C01F0220AF005A402A /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1E239BF1F0220AF005A402A /* OpenCVWrapper.mm */; };
+		F1FDAE071F04C567003658A1 /* source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1FDAE061F04C567003658A1 /* source.cpp */; };
+		F1FDAE091F04C917003658A1 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1FDAE081F04C917003658A1 /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		F1E239BD1F0220AF005A402A /* theia-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "theia-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		F1E239BE1F0220AF005A402A /* OpenCVWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
 		F1E239BF1F0220AF005A402A /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
+		F1FDAE061F04C567003658A1 /* source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = source.cpp; path = dlib/all/source.cpp; sourceTree = "<group>"; };
+		F1FDAE081F04C917003658A1 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1FDAE091F04C917003658A1 /* Accelerate.framework in Frameworks */,
 				F1AB06701F02B8AC0054EC41 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,11 +45,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F11F28331F04BCE3004C226C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1FDAE081F04C917003658A1 /* Accelerate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F1E239A01F022092005A402A = {
 			isa = PBXGroup;
 			children = (
 				F1E239AB1F022092005A402A /* theia */,
 				F1E239AA1F022092005A402A /* Products */,
+				F11F28331F04BCE3004C226C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +76,7 @@
 				F1AB066F1F02B8AC0054EC41 /* opencv2.framework */,
 				F1E239BE1F0220AF005A402A /* OpenCVWrapper.h */,
 				F1E239BF1F0220AF005A402A /* OpenCVWrapper.mm */,
+				F1FDAE061F04C567003658A1 /* source.cpp */,
 				F1E239AC1F022092005A402A /* AppDelegate.swift */,
 				F1E239AE1F022092005A402A /* PlaybackViewController.swift */,
 				F1E239B01F022092005A402A /* Assets.xcassets */,
@@ -144,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1FDAE071F04C567003658A1 /* source.cpp in Sources */,
 				F1E239AF1F022092005A402A /* PlaybackViewController.swift in Sources */,
 				F1E239AD1F022092005A402A /* AppDelegate.swift in Sources */,
 				F1E239C01F0220AF005A402A /* OpenCVWrapper.mm in Sources */,
@@ -264,14 +280,32 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/theia";
-				GCC_PREPROCESSOR_DEFINITIONS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/theia",
+					"$(PROJECT_DIR)/lib",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DLIB_JPEG_SUPPORT,
+					DLIB_NO_GUI_SUPPORT,
+					NDEBUG,
+					DLIB_USE_LAPACK,
+					DLIB_USE_BLAS,
+				);
 				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/theia";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/theia",
+					"$(PROJECT_DIR)/lib",
+					/opt/X11/include,
+					/usr/local/include,
+				);
 				INFOPLIST_FILE = theia/Info.plist;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/theia";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/theia",
+					"$(PROJECT_DIR)/lib",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.bhavingupta.theia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "theia-Bridging-Header.h";
@@ -290,14 +324,32 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/theia";
-				GCC_PREPROCESSOR_DEFINITIONS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/theia",
+					"$(PROJECT_DIR)/lib",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DLIB_JPEG_SUPPORT,
+					DLIB_NO_GUI_SUPPORT,
+					NDEBUG,
+					DLIB_USE_LAPACK,
+					DLIB_USE_BLAS,
+				);
 				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/theia";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/theia",
+					"$(PROJECT_DIR)/lib",
+					/opt/X11/include,
+					/usr/local/include,
+				);
 				INFOPLIST_FILE = theia/Info.plist;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/theia";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/theia",
+					"$(PROJECT_DIR)/lib",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.bhavingupta.theia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "theia-Bridging-Header.h";
