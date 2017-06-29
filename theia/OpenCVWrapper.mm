@@ -7,9 +7,11 @@
 //
 
 #import <opencv2/opencv.hpp>
-#import "OpenCVWrapper.h"
 
 #import <dlib/image_processing.h>
+#import <dlib/image_processing/frontal_face_detector.h>
+
+#import "OpenCVWrapper.h"
 
 using namespace std;
 using namespace cv;

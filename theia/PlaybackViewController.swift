@@ -81,7 +81,7 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
         CVPixelBufferUnlockBaseAddress(buffer, CVPixelBufferLockFlags.readOnly)
         
         // This is a filtering sample.
-        let resultImage = OpenCVWrapper.gray(capturedImage)
+        let resultImage = OpenCVWrapper.detect(capturedImage)
         
         // Show the result.
         DispatchQueue.main.async(execute: {
