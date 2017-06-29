@@ -10,55 +10,85 @@ import Cocoa
 import Foundation
 import AVFoundation
 
-class PlaybackViewController: NSViewController {
+class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    // MARK: AVFoundation variables
+    @IBOutlet weak var imageView: NSImageView!
     
-    let captureSession = AVCaptureSession()
-    var captureDevice: AVCaptureDevice?
-    var previewLayer: AVCaptureVideoPreviewLayer?
-    var previewPanel: NSView!
-
+    var session: AVCaptureSession!
+    var device: AVCaptureDevice!
+    var output: AVCaptureVideoDataOutput!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.imageView.setContentCompressionResistancePriority(250, for: NSLayoutConstraintOrientation.horizontal)
+        self.imageView.setContentCompressionResistancePriority(250, for: NSLayoutConstraintOrientation.vertical)
 
-        captureSession.sessionPreset = AVCaptureSessionPresetLow
-        let devices = AVCaptureDevice.devices()
-        for device in devices! {
-            if ((device as AnyObject).hasMediaType(AVMediaTypeVideo)) {
-                captureDevice = device as? AVCaptureDevice
-            }
+        self.session = AVCaptureSession()
+        self.session.sessionPreset = AVCaptureSessionPresetLow
+        for device in AVCaptureDevice.devices() {
+            self.device = device as! AVCaptureDevice
         }
-                
+        if (self.device == nil) {
+            print ("no webcam found")
+            return
+        }
+        
         do {
-            let deviceInput = try AVCaptureDeviceInput(device: captureDevice)
-            captureSession.addInput(deviceInput)
-            
-            previewPanel = self.view.subviews.first // get out the custom view
-            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            previewLayer!.frame = self.view.bounds
-            
-            previewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
-            previewPanel.layer?.addSublayer(previewLayer!)
-            
-        } catch let error as NSError {
-            Swift.print("Error: no valid camera input in \(error.domain)")
+            let input = try AVCaptureDeviceInput(device: self.device)
+            self.session.addInput(input)
+        } catch {
+            print ("no input found")
+            return
+        }
+        
+        self.output = AVCaptureVideoDataOutput()
+        self.output.videoSettings = [ kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32BGRA)]
+        let queue: DispatchQueue = DispatchQueue(label: "videocapturequeue", attributes: [])
+        self.output.setSampleBufferDelegate(self, queue: queue)
+        self.output.alwaysDiscardsLateVideoFrames = true
+        
+        if self.session.canAddOutput(self.output) {
+            self.session.addOutput(self.output)
+        } else {
+            print ("couldn't add output")
+            return
         }
         
     }
     
     public func startCamera() {
-        captureSession.startRunning()
-        self.tapButton(button: 38)
+        self.session.startRunning()
     }
     
     public func stopCamera() {
-        if captureSession.isRunning {
-            captureSession.stopRunning()
-            // TODO stop all keypresses by force
+        if (self.session.isRunning) {
+            self.session.stopRunning()
         }
     }
-
+    
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+        
+        // Convert a captured image buffer to NSImage.
+        guard let buffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+            print("couldn't get pixel buffer")
+            return
+        }
+        CVPixelBufferLockBaseAddress(buffer, CVPixelBufferLockFlags.readOnly)
+        let imageRep = NSCIImageRep(ciImage: CIImage(cvImageBuffer: buffer))
+        let capturedImage = NSImage(size: imageRep.size)
+        capturedImage.addRepresentation(imageRep)
+        CVPixelBufferUnlockBaseAddress(buffer, CVPixelBufferLockFlags.readOnly)
+        
+        // This is a filtering sample.
+        let resultImage = OpenCVWrapper.gray(capturedImage)
+        
+        // Show the result.
+        DispatchQueue.main.async(execute: {
+            self.imageView.image = resultImage;
+        })
+    }
+    
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.

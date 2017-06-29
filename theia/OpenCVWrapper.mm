@@ -8,6 +8,7 @@
 
 #import <opencv2/opencv.hpp>
 #import "OpenCVWrapper.h"
+
 using namespace std;
 using namespace cv;
 
@@ -69,14 +70,24 @@ static NSImage *MatToNSImage(cv::Mat &mat) {
 
 @implementation OpenCVWrapper
 
-- (NSImage*) process:(NSImage*) pic {
++ (NSImage*) gray:(NSImage*) pic {
     Mat input;
     NSImageToMat(pic, input);
     Mat output;
-    cvtColor(input, output, CV_BGR2GRAY)
+    cvtColor(input, output, CV_BGR2GRAY);
     
     NSImage *result = MatToNSImage(output);
-    
-    return inputImage;
+    return result;
 }
+
++ (NSImage*) detect:(NSImage*) pic {
+    Mat input;
+    NSImageToMat(pic, input);
+    Mat output;
+    cvtColor(input, output, CV_BGR2GRAY);
+    
+    NSImage *result = MatToNSImage(output);
+    return result;
+}
+
 @end

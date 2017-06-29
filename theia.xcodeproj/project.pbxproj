@@ -259,6 +259,7 @@
 		F1E239B91F022092005A402A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
@@ -266,16 +267,32 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/theia",
+					"$(PROJECT_DIR)/lib",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					DLIB_USE_LAPACK,
+					DLIB_USE_BLAS,
+					"COCOAPODS=1",
+					"$(inherited)",
+					DLIB_JPEG_SUPPORT,
+					DLIB_NO_GUI_SUPPORT,
 				);
 				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				INFOPLIST_FILE = theia/Info.plist;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)/theia",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.bhavingupta.theia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "theia-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/lib";
 				WARNING_LDFLAGS = "";
 			};
 			name = Debug;
@@ -283,6 +300,7 @@
 		F1E239BA1F022092005A402A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
@@ -290,15 +308,31 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/theia",
+					"$(PROJECT_DIR)/lib",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					DLIB_USE_LAPACK,
+					DLIB_USE_BLAS,
+					"COCOAPODS=1",
+					"$(inherited)",
+					DLIB_JPEG_SUPPORT,
+					DLIB_NO_GUI_SUPPORT,
 				);
 				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				INFOPLIST_FILE = theia/Info.plist;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)/theia",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.bhavingupta.theia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "theia-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/lib";
 				WARNING_LDFLAGS = "";
 			};
 			name = Release;
