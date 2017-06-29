@@ -1,2 +1,3 @@
 theia/opencv2.framework/*
+/lib/*
 theia/libdlib.a

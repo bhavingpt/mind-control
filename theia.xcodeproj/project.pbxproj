@@ -45,7 +45,6 @@
 			children = (
 				F1E239AB1F022092005A402A /* theia */,
 				F1E239AA1F022092005A402A /* Products */,
-				F1F2898A1F04A38D0041790E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,13 +70,6 @@
 				F1E239BD1F0220AF005A402A /* theia-Bridging-Header.h */,
 			);
 			path = theia;
-			sourceTree = "<group>";
-		};
-		F1F2898A1F04A38D0041790E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
