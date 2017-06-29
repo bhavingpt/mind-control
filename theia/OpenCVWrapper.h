@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 
 @interface OpenCVWrapper : NSObject
-- (void)isThisWorking;
-- (NSImage *)processImageWithOpenCV:(NSImage*)inputImage;
+
+- (NSImage *)process:(NSImage*)inputImage;
 
 @end
