@@ -7,10 +7,13 @@
 //
 
 #import <opencv2/opencv.hpp>
+#import <opencv2/highgui/highgui.hpp>
 
+#import <dlib/image_processing.h>
 #import <dlib/image_processing/frontal_face_detector.h>
 #import <dlib/image_processing/shape_predictor.h>
-#import <dlib/image_processing.h>
+#import <dlib/array2d/array2d_generic_image.h>
+#import <dlib/image_processing/generic_image.h>
 #import <dlib/opencv/cv_image.h>
 
 #import "OpenCVWrapper.h"
@@ -72,10 +75,65 @@ static NSImage *MatToNSImage(cv::Mat &mat) {
     return image;
 }
 
+static void draw_polyline(cv::Mat &img, const dlib::full_object_detection& d, const int start, const int end, bool isClosed = false)
+{
+    std::vector <cv::Point> points;
+    for (int i = start; i <= end; ++i)
+    {
+        points.push_back(cv::Point(d.part(i).x(), d.part(i).y()));
+    }
+    cv::polylines(img, points, isClosed, cv::Scalar(255,0,0), 2, 16);
+    
+}
 
-@implementation OpenCVWrapper
+static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
+{
+    DLIB_CASSERT
+    (
+     d.num_parts() == 68,
+     "\n\t Invalid inputs were given to this function. "
+     << "\n\t d.num_parts():  " << d.num_parts()
+     );
+    
+    draw_polyline(img, d, 0, 16);           // Jaw line
+    draw_polyline(img, d, 17, 21);          // Left eyebrow
+    draw_polyline(img, d, 22, 26);          // Right eyebrow
+    draw_polyline(img, d, 27, 30);          // Nose bridge
+    draw_polyline(img, d, 30, 35, true);    // Lower nose
+    draw_polyline(img, d, 36, 41, true);    // Left eye
+    draw_polyline(img, d, 42, 47, true);    // Right Eye
+    draw_polyline(img, d, 48, 59, true);    // Outer lip
+    draw_polyline(img, d, 60, 67, true);    // Inner lip
+    
+}
 
-+ (NSImage*) gray:(NSImage*) pic {
+
+@implementation OpenCVWrapper {
+    int _counter;
+    float _resize;
+    std::vector<dlib::rectangle> _test;
+    dlib::shape_predictor sp;
+    dlib::frontal_face_detector detector;
+}
+
+- (id) init {
+    self = [super init];
+    try {
+        NSString *modelFileName = [[NSBundle mainBundle] pathForResource:@"shape_predictor_68_face_landmarks" ofType:@"dat"];
+        std::string modelFileNameCString = [modelFileName UTF8String];
+        
+        dlib::deserialize(modelFileNameCString) >> self->sp;
+    } catch (...) {
+        std::cout << "nope";
+    }
+    
+    self->detector = dlib::get_frontal_face_detector();
+    self->_resize = 4.0;
+    
+    return self;
+}
+
+- (NSImage*) gray:(NSImage*) pic {
     Mat input;
     NSImageToMat(pic, input);
     Mat output;
@@ -85,36 +143,40 @@ static NSImage *MatToNSImage(cv::Mat &mat) {
     return result;
 }
 
-+ (NSImage*) detect:(NSImage*) pic {
+- (NSImage*) detect:(NSImage*) pic {
+    Mat input_color;
+    Mat input_gray;
     Mat input;
-    NSImageToMat(pic, input);
+    NSImageToMat(pic, input_color);
+    cvtColor(input_color, input_gray, CV_BGR2GRAY);
+    cv::resize(input_gray, input, cv::Size(), 1.0/_resize, 1.0/_resize);
     
-    dlib::array2d<dlib::rgb_pixel> dlibimg;
-    dlib::assign_image(dlibimg, dlib::cv_image<dlib::bgr_pixel>(input));
+    dlib::cv_image<uchar> dlibimg(input);
+    dlib::cv_image<uchar> dlibimage(input_gray);
     
-    dlib::shape_predictor sp;
+    if (_counter % 12 == 0) {
+        _test = detector(dlibimg);
+        if (_test.size() == 0) {
+            _counter = -1;
+            std::cout << "lost tracking, resetting" << endl;
+        }
+    }
+    _counter += 1;
     
-    try {
-        NSString *modelFileName = [[NSBundle mainBundle] pathForResource:@"shape_predictor_68_face_landmarks" ofType:@"dat"];
-        std::string modelFileNameCString = [modelFileName UTF8String];
+    for (int j = 0; j < _test.size(); ++j) {
+        dlib::rectangle r(
+                    (long)(_test[j].left() * _resize),
+                    (long)(_test[j].top() * _resize),
+                    (long)(_test[j].right() * _resize),
+                    (long)(_test[j].bottom() * _resize)
+                    );
         
-        dlib::deserialize(modelFileNameCString) >> sp;
-    } catch (...) {
-        std::cout << "nope";
-        return nil;
+        render_face(input_gray, sp(dlibimage, r));
     }
     
-    dlib::frontal_face_detector detector = dlib::get_frontal_face_detector();
-    
-    std::vector<dlib::rectangle> test = detector(dlibimg);
-    std::vector<dlib::full_object_detection> shapes;
-    
-    for (int j = 0; j < test.size(); j++) {
-        dlib::full_object_detection shape = sp(dlibimg, test[0]);
-        shapes.push_back(shape);
-    }
-    
-    return pic;
+    NSImage *result = MatToNSImage(input_gray);
+    std::cout << "frame" << _counter << endl;
+    return result;
 }
 
 @end

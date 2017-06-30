@@ -17,6 +17,7 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
     var session: AVCaptureSession!
     var device: AVCaptureDevice!
     var output: AVCaptureVideoDataOutput!
+    var cv2: OpenCVWrapper = OpenCVWrapper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,7 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
         self.output.videoSettings = [ kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32BGRA)]
         let queue: DispatchQueue = DispatchQueue(label: "videocapturequeue", attributes: [])
         self.output.setSampleBufferDelegate(self, queue: queue)
-        self.output.alwaysDiscardsLateVideoFrames = false
+        self.output.alwaysDiscardsLateVideoFrames = true
         
         if self.session.canAddOutput(self.output) {
             self.session.addOutput(self.output)
@@ -81,7 +82,7 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
         CVPixelBufferUnlockBaseAddress(buffer, CVPixelBufferLockFlags.readOnly)
         
         // This is a filtering sample.
-        let resultImage = OpenCVWrapper.detect(capturedImage)
+        let resultImage = cv2.detect(capturedImage)
         
         // Show the result.
         DispatchQueue.main.async(execute: {

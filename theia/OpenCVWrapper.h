@@ -11,7 +11,7 @@
 
 @interface OpenCVWrapper : NSObject
 
-+ (NSImage *)gray:(NSImage*)inputImage;
-+ (NSImage *)detect:(NSImage*)inputImage;
+- (NSImage *)gray:(NSImage*)inputImage;
+- (NSImage *)detect:(NSImage*)inputImage;
 
 @end
