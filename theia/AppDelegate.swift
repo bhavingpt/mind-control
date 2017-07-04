@@ -34,6 +34,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 vc!.startCamera()
             } else if (vc != nil){
                 vc!.stopCamera()
+            } else {
+                vc = NSApplication.shared().mainWindow?.windowController?.contentViewController as? PlaybackViewController
             }
         }
     }

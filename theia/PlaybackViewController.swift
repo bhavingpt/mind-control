@@ -68,6 +68,12 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
         }
     }
     
+    private func detectChanges() {
+        if (cv2.right_eye_blinked) {
+            tapButton(button: 34);
+        }
+    }
+    
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         
         // Convert a captured image buffer to NSImage.
@@ -83,6 +89,8 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
         
         // This is a filtering sample.
         let resultImage = cv2.detect(capturedImage)
+        
+        detectChanges()
         
         // Show the result.
         DispatchQueue.main.async(execute: {

@@ -86,6 +86,12 @@ static void draw_polyline(cv::Mat &img, const dlib::full_object_detection& d, co
     
 }
 
+static float dist(dlib::point& p, dlib::point& q) {
+    float x = p.x() - q.x();
+    float y = p.y() - q.y();
+    return cv::sqrt(x*x + y*y);
+}
+
 static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
 {
     DLIB_CASSERT
@@ -114,6 +120,13 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     std::vector<dlib::rectangle> _test;
     dlib::shape_predictor sp;
     dlib::frontal_face_detector detector;
+    dlib::full_object_detection face;
+    
+    // MARK: right eye detections
+    
+    float right_eye_threshold;
+    int right_eye_history;
+    bool _right_eye_blinked;
 }
 
 - (id) init {
@@ -129,6 +142,9 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     
     self->detector = dlib::get_frontal_face_detector();
     self->_resize = 4.0;
+    
+    self->right_eye_threshold = 0.2;
+    self->right_eye_history = 0;
     
     return self;
 }
@@ -171,11 +187,41 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
                     (long)(_test[j].bottom() * _resize)
                     );
         
-        render_face(input_gray, sp(dlibimage, r));
+        face = sp(dlibimage, r);
+        
+        render_face(input_gray, face);
+    }
+    
+    if (_counter != 0) {
+        // check the threshold on the right eye
+     
+        if (right_eye_history == 0) {
+            _right_eye_blinked = false;
+        }
+     
+        float a = dist(face.part(37), face.part(41));
+        float b = dist(face.part(38), face.part(40));
+        float c = dist(face.part(36), face.part(39));
+     
+        float received_value = (a + b) / (2 * c);
+        std::cout << received_value << endl;
+     
+        if (received_value < right_eye_threshold) {
+            right_eye_history += 1;
+        } else {
+            right_eye_history = 0;
+        }
+     
+        if (right_eye_history == 2) {
+            right_eye_history = 0;
+            _right_eye_blinked = true;
+        }
     }
     
     NSImage *result = MatToNSImage(input_gray);
-    std::cout << "frame" << _counter << endl;
+    if (_counter != 0) {
+        std::cout << "frame" << _counter << endl;
+    }
     return result;
 }
 
