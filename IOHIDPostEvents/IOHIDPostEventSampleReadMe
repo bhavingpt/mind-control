@@ -1,0 +1,406 @@
+IOHIDPostEventSample Readme
+
+Description:
+Cocoa sample which demonstrates how to inject various events into the HID system driver. This sample injects events into the system much like mouse and keyboard device drivers do. The central processing for all hardware events is performed by the HID system. An application process can do similarly by using the IOHIDPostEvent call.
+
+Requirements:
+This sample was built using Xcode 2.4. The IOHIDPostEventSample mechanism is available under all releases of Mac OS X, however, the structure f the NXEventData has changed between releases of the OS. This sample is written to support OSX 10.2.8. Refer to comments below and in the code to for differences in the various OS X releases.
+
+Usage:
+
+Launch the sample in the Terminal Window. In order to monitor keyboard events, the tool must be launched with root access, OR the "Enable access for Assistive Devices" option on the Universal Preference control panel must be checked.
+
+Comments:
+The information provided by ths tool is unsupported in that the proper use of the API's is to use the accessor methods. In addition, the information about the SYDEFINED events such as - Eject, Sound Up/Down, Mute, Brightness Up/Down, etc, are not formally documented. The implementation of these special events can be modified in the future. An enhancement request has been submitted to provide an API to distinguish the SYSDEFINE keyboard events.
+
+I've enclosed a copy of the EventTapMonitor sample which can be useful for monitoring events as they flow through the HID System to the core Graphics Window server. the source is provided so that one can eliminate the reporting of mousemoved/dragged events.
+
+Sequence of events.
+
+Initialization:
+
+1. Obtain the HID System class object from the IORegistry.
+2. Initialize class variables. The mouseEventNum global is used to associate mouse drag events with the button down/up events on a one-up basis.
+
+Processing different events.
+
+Mouse Move/Drag Events - defined by postCursorMoveEvent:(int)dx :(int)dy
+	parameters to IOHIDPostEvent
+	eventType - either NX_MOUSEMOVED or NX_LMOUSEDRAGGED depending on the state of the main button. 
+	location - new location to move the mouse position to - which assumes that the option will have the kIOHIDSetCursorPosition bit set.
+	eventDataVersion - kNXEventDataVersion
+	eventFlags - 0
+	options - 0
+	
+	Relative Option: support is present in OS X 10.4.x to specify 
+				relative motion in pixel increments, rather than having to maintain the current location.
+	eventData - an initialized event struture, where 
+		event.mouseMove.dx = change in horizontal position
+			+ move to right
+			- move to left
+		event.mouseMove.dy = change in vertical position
+			+ move down
+			- move up
+			
+	eventDataVersion - kNXEventDataVersion
+	eventFlags - 0
+	options - kIOHIDSetCursorPosition
+	
+	Note that for the mousemoved event, the system will track the state of the modifier keys.
+	
+Mouse Button Events - defined by postMouseButtonEvent:(Boolean)buttonDown
+	Note that before posting the event, preceed the event by a NX_SYSDEFINED event as shown in the sample code. Only send this 
+		event when the mouse button state changes.
+	When the state changes to button down state, increment the mouseEventNum global
+	parameters to IOHIDPostEvent
+	eventType - either NX_LMOUSEDOWN or NX_LMOUSEUP depending on if the button is being simulated as pressed or released 
+	location - current mouse location
+	eventData - an initialized event struture, where
+		event.mouse.eventNum is set to the current mouseEventNum value.
+		event.mouse.click is set to
+			1 - mouse down
+			0 - mouse up
+		event.mouse.pressure set to
+			0 - button released
+			255 - button pressed.
+	eventDataVersion - kNXEventDataVersion
+	eventFlags - 0
+	options - 0
+
+	Note that for the mouse button event, the system will track the state of the modifier keys.
+
+Scroll Wheel events - defined by postScrollWheelEvent
+	parameters to IOHIDPostEvent
+	eventType - NX_SCROLLWHEELMOVED. 
+	location - current mouse location
+	eventData - an initialized event struture, where
+		event.scrollWheel.deltaAxis1 - amount of vertical scrolling
+		event.scrollWheel.deltaAxis2 - amount of horizontal scrolling
+		event.scrollWheel.deltaAxis3 - 0 however, if z-axis scrolling is implemented, then set this to a non-zero value
+	eventDataVersion - kNXEventDataVersion
+	options - 0
+
+	Note that for the mouse button event, the system will track the state of the modifier keys.
+
+	
+Keyboard event - implemented by postKeyCodeEvent for non-modified keyboard events and postModifierKeyCodeEvent 
+	for processing modifier key codes
+	
+	For postKeyCodeEvent, the parameters to IOHIDPostEvent
+	eventType - NX_KEYDOWN or NX_KEYUP depending on whether the key state is down or up. 
+	location - current mouse location
+	eventData - an initialized event struture, where
+		event.key.repeat - 0 for the initial keydown event
+						 - 1 when reporting that the key is still down
+		event.key.keyCode - the keyCode - for a listing of the keycodes see below for the USBKMAP defintion, 
+			which is extracted from the USB DDK 1.5.5 Keyboard example. To generate a lower case character, 
+			the modifier flags field will not be set.
+			To generate a capital character the SHIFT flag must be set in the eventFlags field. To generate a 
+			Command-q event, the Command flag must be set when sending the 'q' down character event.
+
+	eventDataVersion - kNXEventDataVersion
+	eventFlags - state of the modifier buttons
+	options - kIOHIDSetGlobalEventFlags
+
+	For postModifierKeyCodeEvent, the parameters to IOHIDPostEvent
+	eventType - NX_FLAGSCHANGED. 
+	location - current mouse location
+	eventData - an initialized event struture, where
+		event.key.keyCode - the keyCode for the modifier key. for a listing of the keycodes see below for the USBKMAP defintion
+			which is extracted from the USB DDK 1.5.5 Keyboard example. 
+		You must track the current state of the modifier and set this state in in the eventFlags field in subsequent
+		calls to IOHIDPostEvent.
+	IMPORTANT NOTE - simulating the NX_FLAGSCHANGED event will not coalesce to the standard HID system events. The NX_FLAGSCHANGED event only applies to 
+	NX_KEYDOWN/NX_KEYUP events generated within this code. If you want to have
+	the modifier keys coalesced with the HID System generated NX_KEYDOWN/NX_KEYUP events, you will need to install an event tap and use the CGEventGetFlags function to get the flag state associated with the event and use CGEventSetFlags to update the event with the "current" modifier key state.
+
+	eventDataVersion - kNXEventDataVersion
+	eventFlags - state of the modifier buttons
+	options - kIOHIDSetGlobalEventFlags
+	
+System Defined events - implemented by postSystemDefineEvent
+	Note that these events are not officially supported by Mac OS X engineering as there definitions for these functions
+	are not available in officially supported header files. The values for these events are available in the HID 
+	System sources which are available on the DarwinSources web site. Since these events are not officially supported
+	your mileage may vary.
+	
+IMPORTANT NOTE: When using the NXEventData compound.misc union fields for an
+	NX_APPDEFINED event, stick to using only the 32 bit float F[] and 32 bit integer L[] members. The Short and Char fields are deprecated, and will not survive encoding for transport between architectures (LP32 <> LP64, and x86 => PPC, as in Rosetta).
+
+	
+	
+// index represents USB keyboard usage value, content is Mac virtual keycode
+static UInt8	USBKMAP[256] = {  
+	0xFF, 	/* 00 no event */		
+	0xFF,	/* 01 ErrorRollOver */	
+	0xFF,	/* 02 POSTFail */	
+	0xFF,	/* 03 ErrorUndefined */	
+	0x00,	/* 04 A */
+	0x0B,	/* 05 B */
+	0x08,	/* 06 C */
+	0x02,	/* 07 D */
+	0x0E,	/* 08 E */
+	0x03,	/* 09 F */
+	0x05,	/* 0A G */
+	0x04,	/* 0B H */
+	0x22,	/* 0C I */
+	0x26,	/* 0D J */
+	0x28,	/* 0E K */
+	0x25,	/* 0F L */
+
+	0x2E, 	/* 10 M */		
+	0x2D,	/* 11 N */	
+	0x1F,	/* 12 O */	
+	0x23,	/* 13 P */	
+	0x0C,	/* 14 Q */
+	0x0F,	/* 15 R */
+	0x01,	/* 16 S */
+	0x11,	/* 17 T */
+	0x20,	/* 18 U */
+	0x09,	/* 19 V */
+	0x0D,	/* 1A W */
+	0x07,	/* 1B X */
+	0x10,	/* 1C Y */
+	0x06,	/* 1D Z */
+	0x12,	/* 1E 1/! */
+	0x13,	/* 1F 2/@ */
+
+	0x14, 	/* 20 3 # */		
+	0x15,	/* 21 4 $ */	
+	0x17,	/* 22 5 % */	
+	0x16,	/* 23 6 ^ */	
+	0x1A,	/* 24 7 & */
+	0x1C,	/* 25 8 * */
+	0x19,	/* 26 9 ( */
+	0x1D,	/* 27 0 ) */
+	0x24,	/* 28 Return (Enter) */
+	0x35,	/* 29 ESC */
+	0x33,	/* 2A Delete (Backspace) */
+	0x30,	/* 2B Tab */
+	0x31,	/* 2C Spacebar */
+	0x1B,	/* 2D - _ */
+	0x18,	/* 2E = + */
+	0x21,	/* 2F [ { */
+
+	0x1E, 	/* 30 ] } */		
+	0x2A,	/* 31 \ | */	
+	0xFF,	/* 32 Non-US # and ~ (what?!!!) */	
+	0x29,	/* 33 ; : */	
+	0x27,	/* 34 ' " */
+	0x32,	/* 35 ` ~ */
+	0x2B,	/* 36 , < */
+	0x2F,	/* 37 . > */
+	0x2C,	/* 38 / ? */
+	0x39,	/* 39 Caps Lock */
+	0x7A,	/* 3A F1 */
+	0x78,	/* 3B F2 */
+	0x63,	/* 3C F3 */
+	0x76,	/* 3D F4 */
+	0x60,	/* 3E F5 */
+	0x61,	/* 3F F6 */
+
+	0x62, 	/* 40 F7 */		
+	0x64,	/* 41 F8 */	
+	0x65,	/* 42 F9 */	
+	0x6D,	/* 43 F10 */	
+	0x67,	/* 44 F11 */
+	0x6F,	/* 45 F12 */
+	0x69,	/* 46 F13/PrintScreen */
+	0x6B,	/* 47 F14/ScrollLock */
+	0x71,	/* 48 F15/Pause */				
+	0x72,	/* 49 Insert */
+	0x73,	/* 4A Home */
+	0x74,	/* 4B PageUp */
+	0x75,	/* 4C Delete Forward */
+	0x77,	/* 4D End */
+	0x79,	/* 4E PageDown */
+	0x7C,	/* 4F RightArrow */
+
+	0x7B, 	/* 50 LeftArrow */		
+	0x7D,	/* 51 DownArrow */	
+	0x7E,	/* 52 UpArrow */	
+	0x47,	/* 53 NumLock/Clear */	
+	0x4B,	/* 54 Keypad / */
+	0x43,	/* 55 Keypad * */
+	0x4E,	/* 56 Keypad - */
+	0x45,	/* 57 Keypad + */
+	0x4C,	/* 58 Keypad Enter */
+	0x53,	/* 59 Keypad 1 */
+	0x54,	/* 5A Keypad 2 */
+	0x55,	/* 5B Keypad 3 */
+	0x56,	/* 5C Keypad 4 */
+	0x57,	/* 5D Keypad 5 */
+	0x58,	/* 5E Keypad 6 */
+	0x59,	/* 5F Keypad 7 */
+
+	0x5B, 	/* 60 Keypad 8 */		
+	0x5C,	/* 61 Keypad 9 */	
+	0x52,	/* 62 Keypad 0 */	
+	0x41,	/* 63 Keypad . */	
+	0xFF,	/* 64 Non-US \ and  | (what ??!!) */
+	0x6E,	/* 65 ApplicationKey (not on a mac!)*/
+	0x7F,	/* 66 PowerKey  */
+	0x51,	/* 67 Keypad = */
+	0x69,	/* 68 F13 */
+	0x6B,	/* 69 F14 */
+	0x71,	/* 6A F15 */
+	0xFF,	/* 6B F16 */
+	0xFF,	/* 6C F17 */
+	0xFF,	/* 6D F18 */
+	0xFF,	/* 6E F19 */
+	0xFF,	/* 6F F20 */
+
+	0x5B, 	/* 70 F21 */		
+	0x5C,	/* 71 F22 */	
+	0x52,	/* 72 F23 */	
+	0x41,	/* 73 F24 */	
+	0xFF,	/* 74 Execute */
+	0xFF,	/* 75 Help */
+	0x7F,	/* 76 Menu */
+	0x4C,	/* 77 Select */
+	0x69,	/* 78 Stop */
+	0x6B,	/* 79 Again */
+	0x71,	/* 7A Undo */
+	0xFF,	/* 7B Cut */
+	0xFF,	/* 7C Copy */
+	0xFF,	/* 7D Paste */
+	0xFF,	/* 7E Find */
+	0xFF,	/* 7F Mute */
+	
+	0xFF, 	/* 80 no event */		
+	0xFF,	/* 81 no event */	
+	0xFF,	/* 82 no event */	
+	0xFF,	/* 83 no event */	
+	0xFF,	/* 84 no event */
+	0xFF,	/* 85 no event */
+	0xFF,	/* 86 no event */
+	0xFF,	/* 87 no event */
+	0xFF,	/* 88 no event */
+	0xFF,	/* 89 no event */
+	0xFF,	/* 8A no event */
+	0xFF,	/* 8B no event */
+	0xFF,	/* 8C no event */
+	0xFF,	/* 8D no event */
+	0xFF,	/* 8E no event */
+	0xFF,	/* 8F no event */
+
+	0xFF, 	/* 90 no event */		
+	0xFF,	/* 91 no event */	
+	0xFF,	/* 92 no event */	
+	0xFF,	/* 93 no event */	
+	0xFF,	/* 94 no event */
+	0xFF,	/* 95 no event */
+	0xFF,	/* 96 no event */
+	0xFF,	/* 97 no event */
+	0xFF,	/* 98 no event */
+	0xFF,	/* 99 no event */
+	0xFF,	/* 9A no event */
+	0xFF,	/* 9B no event */
+	0xFF,	/* 9C no event */
+	0xFF,	/* 9D no event */
+	0xFF,	/* 9E no event */
+	0xFF,	/* 9F no event */
+
+	0xFF, 	/* A0 no event */		
+	0xFF,	/* A1 no event */	
+	0xFF,	/* A2 no event */	
+	0xFF,	/* A3 no event */	
+	0xFF,	/* A4 no event */
+	0xFF,	/* A5 no event */
+	0xFF,	/* A6 no event */
+	0xFF,	/* A7 no event */
+	0xFF,	/* A8 no event */
+	0xFF,	/* A9 no event */
+	0xFF,	/* AA no event */
+	0xFF,	/* AB no event */
+	0xFF,	/* AC no event */
+	0xFF,	/* AD no event */
+	0xFF,	/* AE no event */
+	0xFF,	/* AF no event */
+
+	0xFF, 	/* B0 no event */		
+	0xFF,	/* B1 no event */	
+	0xFF,	/* B2 no event */	
+	0xFF,	/* B3 no event */	
+	0xFF,	/* B4 no event */
+	0xFF,	/* B5 no event */
+	0xFF,	/* B6 no event */
+	0xFF,	/* B7 no event */
+	0xFF,	/* B8 no event */
+	0xFF,	/* B9 no event */
+	0xFF,	/* BA no event */
+	0xFF,	/* BB no event */
+	0xFF,	/* BC no event */
+	0xFF,	/* BD no event */
+	0xFF,	/* BE no event */
+	0xFF,	/* BF no event */
+
+	0xFF, 	/* C0 no event */		
+	0xFF,	/* C1 no event */	
+	0xFF,	/* C2 no event */	
+	0xFF,	/* C3 no event */	
+	0xFF,	/* C4 no event */
+	0xFF,	/* C5 no event */
+	0xFF,	/* C6 no event */
+	0xFF,	/* C7 no event */
+	0xFF,	/* C8 no event */
+	0xFF,	/* C9 no event */
+	0xFF,	/* CA no event */
+	0xFF,	/* CB no event */
+	0xFF,	/* CC no event */
+	0xFF,	/* CD no event */
+	0xFF,	/* CE no event */
+	0xFF,	/* CF no event */
+
+	0xFF, 	/* D0 no event */		
+	0xFF,	/* D1 no event */	
+	0xFF,	/* D2 no event */	
+	0xFF,	/* D3 no event */	
+	0xFF,	/* D4 no event */
+	0xFF,	/* D5 no event */
+	0xFF,	/* D6 no event */
+	0xFF,	/* D7 no event */
+	0xFF,	/* D8 no event */
+	0xFF,	/* D9 no event */
+	0xFF,	/* DA no event */
+	0xFF,	/* DB no event */
+	0xFF,	/* DC no event */
+	0xFF,	/* DD no event */
+	0xFF,	/* DE no event */
+	0xFF,	/* DF no event */
+
+	0x3B, 	/* E0 left control key */		
+	0x38,	/* E1 left shift key key */	
+	0x3A,	/* E2 left alt/option key */	
+	0x37,	/* E3 left GUI (windows/cmd) key */	
+	
+	0x3B,	/* E4 right control key */ 
+	0x38,	/* E5 right shift key key */ 
+	0x3A,	/* E6 right alt/option key */ 
+	0x37,	/* E7 right GUI (windows/cmd) key */
+	0xFF,	/* E8 no event */
+	0xFF,	/* E9 no event */
+	0xFF,	/* EA no event */
+	0xFF,	/* EB no event */
+	0xFF,	/* EC no event */
+	0xFF,	/* ED no event */
+	0xFF,	/* EE no event */
+	0xFF,	/* EF no event */
+	
+	0xFF, 	/* F0 no event */		
+	0xFF,	/* F1 no event */	
+	0xFF,	/* F2 no event */	
+	0xFF,	/* F3 no event */	
+	0xFF,	/* F4 no event */
+	0xFF,	/* F5 no event */
+	0xFF,	/* F6 no event */
+	0xFF,	/* F7 no event */
+	0xFF,	/* F8 no event */
+	0xFF,	/* F9 no event */
+	0xFF,	/* FA no event */
+	0xFF,	/* FB no event */
+	0xFF,	/* FC no event */
+	0xFF,	/* FD no event */
+	0xFF,	/* FE no event */
+	0xFF,	/* FF no event */
+};

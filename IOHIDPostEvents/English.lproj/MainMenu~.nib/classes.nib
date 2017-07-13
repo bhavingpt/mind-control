@@ -1,0 +1,32 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                CmdOnOff = id; 
+                ShiftOnOff = id; 
+                a = id; 
+                b = id; 
+                buttonDown = id; 
+                buttonUp = id; 
+                c = id; 
+                cursorDown = id; 
+                cursorLeft = id; 
+                cursorRight = id; 
+                cursorUp = id; 
+                d = id; 
+                e = id; 
+                eject = id; 
+                f = id; 
+                mute = id; 
+                quit = id; 
+                volumeDown = id; 
+                volumeUp = id; 
+            }; 
+            CLASS = MyApplication; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

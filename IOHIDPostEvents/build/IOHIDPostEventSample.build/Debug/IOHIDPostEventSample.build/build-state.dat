@@ -1,0 +1,345 @@
+TIOHIDPostEventSample
+v4
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/Info.plist Info.plist
+cStripNIB /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/English.lproj/MainMenu.nib
+cCopyStringsFile /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+cCompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/main.o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyApplication.o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyHIDDevice.o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/main.o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyApplication.o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/IOHIDPostEventSample normal x86_64
+cCompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyHIDDevice.o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/IOHIDPostEventSample normal i386
+cCreateUniversalBinary /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/MacOS/IOHIDPostEventSample normal "x86_64 i386"
+cTouch /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app
+
+N/Developer/SDKs/MacOSX10.7.sdk
+c000000004E9784AF00000000000000EE
+t1318552751
+s238
+
+N/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c0000000040C4AA6800000000000001E5
+t1086630504
+s485
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/English.lproj/InfoPlist.strings
+c00000000453FC9BB00000000000000CA
+t1161808315
+s202
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/English.lproj/MainMenu.nib
+c00000000454A436E00000000000000AA
+t1162494830
+s170
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.m
+c000000004F2848C40000000000001219
+t1328040132
+s4633
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m
+c000000004F2847FC00000000000035F3
+t1328039932
+s13811
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/Info.plist
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/MacOS/IOHIDPostEventSample
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/PkgInfo
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/Resources/English.lproj/InfoPlist.strings
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/Resources/English.lproj/MainMenu.nib
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/IOHIDPostEventSample
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/IOHIDPostEventSample.LinkFileList
+c000000004F28493400000000000001F6
+t1328040244
+s502
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyApplication.o
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyHIDDevice.o
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/main.o
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/IOHIDPostEventSample
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/IOHIDPostEventSample.LinkFileList
+c000000004F28493400000000000001FC
+t1328040244
+s508
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyApplication.o
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyHIDDevice.o
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/main.o
+t2
+s0
+
+N/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m
+c00000000453FC9BB0000000000000104
+t1161808315
+s260
+i<Cocoa/Cocoa.h>
+
+N/System/Library/Frameworks/Carbon.framework/Carbon
+c000000004E2FABFC0000000000006530
+t1311747068
+s25904
+
+N/System/Library/Frameworks/Cocoa.framework/Cocoa
+c000000004E2FABFC0000000000006560
+t1311747068
+s25952
+
+N/System/Library/Frameworks/IOKit.framework/IOKit
+c000000004E95E59F000000000011FDA0
+t1318446495
+s1179040
+
+NInfo.plist
+c00000000453FC9BB000000000000035A
+t1161808315
+s858
+
+CBuild AST from /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.m
+r0
+
+CBuild AST from /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m
+r0
+
+CBuild AST from /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m
+r0
+
+CCheck dependencies
+r0
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciescbf338b480d8b441^babb3ab480d8b441^---0#1#0#--18"Check dependencies36"A1F9657D-9D87-4702-BF48-32BE3C16487C-
+
+CCompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyApplication.o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s349733046.286392
+e349733046.989532
+r1
+xCompileC
+xbuild/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyApplication.o
+x/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Compile /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.m006f49b680d8b441^e751fdb680d8b441^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.m0000000000000000^2025"CompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyApplication.o MyApplication.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -isysroot /Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -mmacosx-version-min=10.7 -gdwarf-2 -fvisibility=hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/IOHIDPostEventSample.hmap -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/include -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/DerivedSources/i386 -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/DerivedSources -F/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug -MMD -MT dependencies -MF /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyApplication.d -c /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.m -o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyApplication.o36"970ACA9B-2DF6-44DB-9451-4BE6400C6016-
+
+CCompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyHIDDevice.o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s349733046.567342
+e349733047.156726
+r1
+xCompileC
+xbuild/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyHIDDevice.o
+x/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:102:19:{102:7-102:53}: warning: using the result of an assignment as a condition without parentheses [-Wparentheses,3]
+o                 if (intfService = IOIteratorNext(matchingServices))
+o                     ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:102:19: note: place parentheses around the assignment to silence this warning [3]
+o                 if (intfService = IOIteratorNext(matchingServices))
+o                                 ^
+o                     (                                             )
+ofix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{102:7-102:7}:"("
+ofix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{102:53-102:53}:")"
+o/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:102:19: note: use '==' to turn this assignment into an equality comparison [3]
+o                 if (intfService = IOIteratorNext(matchingServices))
+o                                 ^
+o                                 ==
+ofix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{102:19-102:20}:"=="
+o/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:126:34:{126:33-126:35}{126:40-126:53}: warning: conversion specifies type 'void *' but the argument has type 'io_connect_t' (aka 'unsigned int') [-Wformat,9]
+o                 fprintf(stderr, "hidsys is at %p\n", *hidsysObject);
+o                                               ~^     ~~~~~~~~~~~~~
+o                                               %u
+ofix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{126:33-126:35}:"%u"
+o/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:164:47:{164:46-164:48}{164:53-164:73}: warning: conversion specifies type 'void *' but the argument has type 'int' [-Wformat,9]
+o         fprintf(stderr, "shiftState and cmdState is %p\n", [self currFlagState]);
+o                                                     ~^     ~~~~~~~~~~~~~~~~~~~~
+o                                                     %d
+ofix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{164:46-164:48}:"%d"
+o3 warnings generated.
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection90"Compile /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0c5991b680d8b441^151e28b780d8b441^-2422"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:102:19:{102:7-102:53}: warning: using the result of an assignment as a condition without parentheses [-Wparentheses,3]                 if (intfService = IOIteratorNext(matchingServices))                     ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:102:19: note: place parentheses around the assignment to silence this warning [3]                 if (intfService = IOIteratorNext(matchingServices))                                 ^                     (                                             )fix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{102:7-102:7}:"("fix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{102:53-102:53}:")"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:102:19: note: use '==' to turn this assignment into an equality comparison [3]                 if (intfService = IOIteratorNext(matchingServices))                                 ^                                 ==fix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{102:19-102:20}:"=="/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:126:34:{126:33-126:35}{126:40-126:53}: warning: conversion specifies type 'void *' but the argument has type 'io_connect_t' (aka 'unsigned int') [-Wformat,9]                 fprintf(stderr, "hidsys is at %p\n", *hidsysObject);                                               ~^     ~~~~~~~~~~~~~                                               %ufix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{126:33-126:35}:"%u"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:164:47:{164:46-164:48}{164:53-164:73}: warning: conversion specifies type 'void *' but the argument has type 'int' [-Wformat,9]         fprintf(stderr, "shiftState and cmdState is %p\n", [self currFlagState]);                                                     ~^     ~~~~~~~~~~~~~~~~~~~~                                                     %dfix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{164:46-164:48}:"%d"3 warnings generated.3(21%IDEActivityLogMessage2@68"Using the result of an assignment as a condition without parentheses-349733047#0#202#5(2@63"Place parentheses around the assignment to silence this warning-349733047#339#165#-0#-23%DVTTextDocumentLocation3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#18#101#18#18446744073709551615#0#14"Semantic Issue--26%IDEActivityLogFixItMessage4@22"Fix-It: replace with (-349733047#677#110#-0#23"com.apple.dt.IDE.fix-it3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#6#101#6#18446744073709551615#0#---1"(4@22"Fix-It: replace with )-349733047#787#112#-0#23"com.apple.dt.IDE.fix-it3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#52#101#52#18446744073709551615#0#---1")2@60"Use '==' to turn this assignment into an equality comparison-349733047#899#162#-0#-3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#18#101#18#18446744073709551615#0#14"Semantic Issue--4@23"Fix-It: replace with ==-349733047#1201#113#-0#23"com.apple.dt.IDE.fix-it3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#18#101#19#18446744073709551615#0#---2"==1#-3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#18#101#18#18446744073709551615#0#14"Semantic Issue1(3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#6#101#52#18446744073709551615#0#-2@96"Conversion specifies type 'void *' but the argument has type 'io_connect_t' (aka 'unsigned int')75"Conversion specifies type 'void *' but the argument has type 'io_connect_t'349733047#1314#241#1(4@23"Fix-It: replace with %u-349733047#1743#113#-0#23"com.apple.dt.IDE.fix-it3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^125#32#125#34#18446744073709551615#0#---2"%u1#-3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^125#33#125#33#18446744073709551615#0#19"Format String Issue2(3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^125#32#125#34#18446744073709551615#0#3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^125#39#125#52#18446744073709551615#0#-2@66"Conversion specifies type 'void *' but the argument has type 'int'-349733047#1856#211#1(4@23"Fix-It: replace with %d-349733047#2287#113#-0#23"com.apple.dt.IDE.fix-it3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^163#45#163#47#18446744073709551615#0#---2"%d1#-3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^163#46#163#46#18446744073709551615#0#19"Format String Issue2(3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^163#45#163#47#18446744073709551615#0#3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^163#52#163#72#18446744073709551615#0#-0#0#0#-19%DVTDocumentLocation5@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^2015"CompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyHIDDevice.o MyHIDDevice.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -isysroot /Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -mmacosx-version-min=10.7 -gdwarf-2 -fvisibility=hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/IOHIDPostEventSample.hmap -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/include -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/DerivedSources/i386 -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/DerivedSources -F/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug -MMD -MT dependencies -MF /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyHIDDevice.d -c /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m -o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/MyHIDDevice.o36"A5980E73-EC8A-4EB5-BCC5-C927A0116BBF-
+
+CCompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/main.o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s349733045.597933
+e349733046.473068
+r1
+xCompileC
+xbuild/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/main.o
+x/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Compile /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m8c3099b580d8b441^85b27cb680d8b441^---0#0#0#-19%DVTDocumentLocation2@91"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m0000000000000000^1980"CompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/main.o main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -isysroot /Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -mmacosx-version-min=10.7 -gdwarf-2 -fvisibility=hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/IOHIDPostEventSample.hmap -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/include -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/DerivedSources/i386 -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/DerivedSources -F/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug -MMD -MT dependencies -MF /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/main.d -c /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m -o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/main.o36"23CBD06F-DEAF-44DD-98DF-1B2B13CC71BA-
+
+CCompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyApplication.o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s349733044.354403
+e349733045.596617
+r1
+xCompileC
+xbuild/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyApplication.o
+x/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Compile /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.mf6d45ab480d8b441^06bc98b580d8b441^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.m0000000000000000^2037"CompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyApplication.o MyApplication.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -isysroot /Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -mmacosx-version-min=10.7 -gdwarf-2 -fvisibility=hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/IOHIDPostEventSample.hmap -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/include -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/DerivedSources/x86_64 -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/DerivedSources -F/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug -MMD -MT dependencies -MF /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyApplication.d -c /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyApplication.m -o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyApplication.o36"39BC4D30-B671-4571-BA1E-04CBF1AFC13E-
+
+CCompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyHIDDevice.o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s349733045.410525
+e349733046.284446
+r1
+xCompileC
+xbuild/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyHIDDevice.o
+x/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:102:19:{102:7-102:53}: warning: using the result of an assignment as a condition without parentheses [-Wparentheses,3]
+o                 if (intfService = IOIteratorNext(matchingServices))
+o                     ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:102:19: note: place parentheses around the assignment to silence this warning [3]
+o                 if (intfService = IOIteratorNext(matchingServices))
+o                                 ^
+o                     (                                             )
+ofix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{102:7-102:7}:"("
+ofix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{102:53-102:53}:")"
+o/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:102:19: note: use '==' to turn this assignment into an equality comparison [3]
+o                 if (intfService = IOIteratorNext(matchingServices))
+o                                 ^
+o                                 ==
+ofix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{102:19-102:20}:"=="
+o/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:126:34:{126:33-126:35}{126:40-126:53}: warning: conversion specifies type 'void *' but the argument has type 'io_connect_t' (aka 'unsigned int') [-Wformat,9]
+o                 fprintf(stderr, "hidsys is at %p\n", *hidsysObject);
+o                                               ~^     ~~~~~~~~~~~~~
+o                                               %u
+ofix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{126:33-126:35}:"%u"
+o/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:164:47:{164:46-164:48}{164:53-164:73}: warning: conversion specifies type 'void *' but the argument has type 'int' [-Wformat,9]
+o         fprintf(stderr, "shiftState and cmdState is %p\n", [self currFlagState]);
+o                                                     ~^     ~~~~~~~~~~~~~~~~~~~~
+o                                                     %d
+ofix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{164:46-164:48}:"%d"
+o3 warnings generated.
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection90"Compile /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m373469b580d8b441^edd848b680d8b441^-2422"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:102:19:{102:7-102:53}: warning: using the result of an assignment as a condition without parentheses [-Wparentheses,3]                 if (intfService = IOIteratorNext(matchingServices))                     ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:102:19: note: place parentheses around the assignment to silence this warning [3]                 if (intfService = IOIteratorNext(matchingServices))                                 ^                     (                                             )fix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{102:7-102:7}:"("fix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{102:53-102:53}:")"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:102:19: note: use '==' to turn this assignment into an equality comparison [3]                 if (intfService = IOIteratorNext(matchingServices))                                 ^                                 ==fix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{102:19-102:20}:"=="/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:126:34:{126:33-126:35}{126:40-126:53}: warning: conversion specifies type 'void *' but the argument has type 'io_connect_t' (aka 'unsigned int') [-Wformat,9]                 fprintf(stderr, "hidsys is at %p\n", *hidsysObject);                                               ~^     ~~~~~~~~~~~~~                                               %ufix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{126:33-126:35}:"%u"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m:164:47:{164:46-164:48}{164:53-164:73}: warning: conversion specifies type 'void *' but the argument has type 'int' [-Wformat,9]         fprintf(stderr, "shiftState and cmdState is %p\n", [self currFlagState]);                                                     ~^     ~~~~~~~~~~~~~~~~~~~~                                                     %dfix-it:"/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m":{164:46-164:48}:"%d"3 warnings generated.3(21%IDEActivityLogMessage2@68"Using the result of an assignment as a condition without parentheses-349733046#0#202#5(2@63"Place parentheses around the assignment to silence this warning-349733046#339#165#-0#-23%DVTTextDocumentLocation3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#18#101#18#18446744073709551615#0#14"Semantic Issue--26%IDEActivityLogFixItMessage4@22"Fix-It: replace with (-349733046#677#110#-0#23"com.apple.dt.IDE.fix-it3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#6#101#6#18446744073709551615#0#---1"(4@22"Fix-It: replace with )-349733046#787#112#-0#23"com.apple.dt.IDE.fix-it3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#52#101#52#18446744073709551615#0#---1")2@60"Use '==' to turn this assignment into an equality comparison-349733046#899#162#-0#-3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#18#101#18#18446744073709551615#0#14"Semantic Issue--4@23"Fix-It: replace with ==-349733046#1201#113#-0#23"com.apple.dt.IDE.fix-it3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#18#101#19#18446744073709551615#0#---2"==1#-3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#18#101#18#18446744073709551615#0#14"Semantic Issue1(3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^101#6#101#52#18446744073709551615#0#-2@96"Conversion specifies type 'void *' but the argument has type 'io_connect_t' (aka 'unsigned int')75"Conversion specifies type 'void *' but the argument has type 'io_connect_t'349733046#1314#241#1(4@23"Fix-It: replace with %u-349733046#1743#113#-0#23"com.apple.dt.IDE.fix-it3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^125#32#125#34#18446744073709551615#0#---2"%u1#-3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^125#33#125#33#18446744073709551615#0#19"Format String Issue2(3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^125#32#125#34#18446744073709551615#0#3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^125#39#125#52#18446744073709551615#0#-2@66"Conversion specifies type 'void *' but the argument has type 'int'-349733046#1856#211#1(4@23"Fix-It: replace with %d-349733046#2287#113#-0#23"com.apple.dt.IDE.fix-it3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^163#45#163#47#18446744073709551615#0#---2"%d1#-3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^163#46#163#46#18446744073709551615#0#19"Format String Issue2(3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^163#45#163#47#18446744073709551615#0#3@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^163#52#163#72#18446744073709551615#0#-0#0#0#-19%DVTDocumentLocation5@98"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m0000000000000000^2027"CompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyHIDDevice.o MyHIDDevice.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -isysroot /Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -mmacosx-version-min=10.7 -gdwarf-2 -fvisibility=hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/IOHIDPostEventSample.hmap -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/include -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/DerivedSources/x86_64 -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/DerivedSources -F/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug -MMD -MT dependencies -MF /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyHIDDevice.d -c /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/MyHIDDevice.m -o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/MyHIDDevice.o36"A6B0F41F-B1E5-4BC6-8A27-B3D15CDF0720-
+
+CCompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/main.o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s349733044.345263
+e349733045.409161
+r1
+xCompileC
+xbuild/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/main.o
+x/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Compile /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m8c8258b480d8b441^43c968b580d8b441^---0#0#0#-19%DVTDocumentLocation2@91"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m0000000000000000^1992"CompileC build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/main.o main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -isysroot /Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -mmacosx-version-min=10.7 -gdwarf-2 -fvisibility=hidden -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/IOHIDPostEventSample.hmap -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/include -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/DerivedSources/x86_64 -I/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/DerivedSources -F/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug -MMD -MT dependencies -MF /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/main.d -c /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/main.m -o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/main.o36"EB7B5914-E842-41FE-8AA2-043ADBC1B29B-
+
+CCopyStringsFile /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+s349733044.254781
+e349733044.259165
+r1
+xCopyStringsFile
+x/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/Resources/English.lproj/InfoPlist.strings
+xEnglish.lproj/InfoPlist.strings
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Copy English.lproj/InfoPlist.strings0e4941b480d8b441^fa6342b480d8b441^---0#0#0#-19%DVTDocumentLocation2@116"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/English.lproj/InfoPlist.strings0000000000000000^477"CopyStringsFile build/Debug/IOHIDPostEventSample.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings    cd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample    builtin-copyStrings --validate --inputencoding utf-16 --outputencoding UTF-16 --outdir /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/Resources/English.lproj -- English.lproj/InfoPlist.strings36"420EDA7D-A85E-4A0A-B5EA-FAA8A68D2378-
+
+CCreateUniversalBinary /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/MacOS/IOHIDPostEventSample normal "x86_64 i386"
+s349733047.229922
+e349733047.297796
+r1
+xCreateUniversalBinary
+x/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/MacOS/IOHIDPostEventSample
+xnormal
+xx86_64 i386
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection165"Create universal binary /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/MacOS/IOHIDPostEventSample58703bb780d8b441^0dc64cb780d8b441^---0#0#0#-19%DVTDocumentLocation2@157"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/MacOS/IOHIDPostEventSample00f45c43dfffdf42^722"CreateUniversalBinary build/Debug/IOHIDPostEventSample.app/Contents/MacOS/IOHIDPostEventSample normal "x86_64 i386"    cd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample    /usr/bin/lipo -create /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/IOHIDPostEventSample /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/IOHIDPostEventSample -output /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/MacOS/IOHIDPostEventSample36"CD6BF866-0AC0-4230-87B1-79C277240D66-
+
+CLd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/IOHIDPostEventSample normal i386
+s349733047.163835
+e349733047.221658
+r1
+xLd
+x/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/IOHIDPostEventSample
+xnormal
+xi386
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection180"Link /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/IOHIDPostEventSample1c072ab780d8b441^05c038b780d8b441^---0#0#0#--942"Ld build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/IOHIDPostEventSample normal i386    cd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample    setenv MACOSX_DEPLOYMENT_TARGET 10.7    /Developer/usr/bin/clang -arch i386 -isysroot /Developer/SDKs/MacOSX10.7.sdk -L/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug -F/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug -filelist /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/IOHIDPostEventSample.LinkFileList -mmacosx-version-min=10.7 -framework Cocoa -framework IOKit -framework Carbon -o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/i386/IOHIDPostEventSample36"46C9D992-7486-423E-9CC6-E097EDB5538F-
+
+CLd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/IOHIDPostEventSample normal x86_64
+s349733046.494802
+e349733046.566036
+r1
+xLd
+x/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/IOHIDPostEventSample
+xnormal
+xx86_64
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection182"Link /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/IOHIDPostEventSamplec6c47eb680d8b441^84f490b680d8b441^---0#0#0#--952"Ld build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/IOHIDPostEventSample normal x86_64    cd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample    setenv MACOSX_DEPLOYMENT_TARGET 10.7    /Developer/usr/bin/clang -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.7.sdk -L/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug -F/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug -filelist /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/IOHIDPostEventSample.LinkFileList -mmacosx-version-min=10.7 -framework Cocoa -framework IOKit -framework Carbon -o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/IOHIDPostEventSample.build/Debug/IOHIDPostEventSample.build/Objects-normal/x86_64/IOHIDPostEventSample36"D393D94B-A94D-4D98-91E2-DD1EC2B15B2D-
+
+CProcessInfoPlistFile /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/Info.plist Info.plist
+s349733044.230562
+e349733044.242881
+r1
+xProcessInfoPlistFile
+x/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/Info.plist
+xInfo.plist
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Process Info.plist1e193bb480d8b441^253b3eb480d8b441^---0#0#0#-19%DVTDocumentLocation2@95"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/Info.plist0000000000000000^507"ProcessInfoPlistFile build/Debug/IOHIDPostEventSample.app/Contents/Info.plist Info.plist    cd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample    builtin-infoPlistUtility Info.plist -genpkginfo /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/Info.plist36"652F4C55-6B23-41E7-B64E-A46D8C257DBD-
+
+CStripNIB /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/English.lproj/MainMenu.nib
+s349733044.252482
+e349733044.309879
+r1
+xStripNIB
+x/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/English.lproj/MainMenu.nib
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection106"Processing /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/English.lproj/MainMenu.nib941741b480d8b441^b1e05ab480d8b441^---0#0#0#-19%DVTDocumentLocation2@112"file://localhost/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/English.lproj/MainMenu.nib/0000000000000000^492"StripNIB English.lproj/MainMenu.nib    cd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample    setenv XCODE_DEVELOPER_USR_PATH /Developer/usr/bin/..    /Developer/usr/bin/ibtool --strip /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app/Contents/Resources/English.lproj/MainMenu.nib --output-format human-readable-text /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/English.lproj/MainMenu.nib36"A6198723-E64F-49B9-9CEF-AB3982108490-
+
+CTouch /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app
+s349733047.313190
+e349733047.348349
+r1
+xTouch
+x/Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection111"Touch /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app573d50b780d8b441^a8c459b780d8b441^---0#0#0#--247"Touch build/Debug/IOHIDPostEventSample.app    cd /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample    /usr/bin/touch -c /Documents/SampleCodeX/IOHIDPostEventSampleCode/IOHIDPostEventSample/build/Debug/IOHIDPostEventSample.app36"31886782-84D7-4B04-A481-467B4486A905-
+

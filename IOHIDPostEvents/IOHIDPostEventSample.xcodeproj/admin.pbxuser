@@ -1,0 +1,248 @@
+// !$*UTF8*$!
+{
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 84E877890AF0013B00707EB8 /* IOHIDPostEventSample */;
+		activeTarget = 8D1107260486CEB800E47090 /* IOHIDPostEventSample */;
+		addToTargets = (
+		);
+		breakpoints = (
+		);
+		codeSenseManager = 84E877990AF0014A00707EB8 /* Code sense */;
+		executables = (
+			84E877890AF0013B00707EB8 /* IOHIDPostEventSample */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					245,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 270107297;
+			PBXWorkspaceStateSaveDate = 270107297;
+		};
+		perUserProjectItems = {
+			84FEE28D1019825400F9D89B /* PBXTextBookmark */ = 84FEE28D1019825400F9D89B /* PBXTextBookmark */;
+			84FEE28F1019825400F9D89B /* PBXTextBookmark */ = 84FEE28F1019825400F9D89B /* PBXTextBookmark */;
+			84FEE2901019825400F9D89B /* PBXTextBookmark */ = 84FEE2901019825400F9D89B /* PBXTextBookmark */;
+			84FEE2951019825400F9D89B /* PBXTextBookmark */ = 84FEE2951019825400F9D89B /* PBXTextBookmark */;
+			84FEE29A1019825400F9D89B /* PBXTextBookmark */ = 84FEE29A1019825400F9D89B /* PBXTextBookmark */;
+			84FEE2D0101987BF00F9D89B /* PBXTextBookmark */ = 84FEE2D0101987BF00F9D89B /* PBXTextBookmark */;
+			84FEE2D3101987BF00F9D89B /* PBXTextBookmark */ = 84FEE2D3101987BF00F9D89B /* PBXTextBookmark */;
+			84FEE2D5101987BF00F9D89B /* PBXTextBookmark */ = 84FEE2D5101987BF00F9D89B /* PBXTextBookmark */;
+		};
+		sourceControlManager = 84E877980AF0014A00707EB8 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1130, 764}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {1130, 764}}";
+			sepNavWindowFrame = "{{130, 40}, {1169, 878}}";
+		};
+	};
+	8443B6100AF92E4500905F0B /* IOHIDPostEventSampleReadMe */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {883, 5740}}";
+			sepNavSelRange = "{5912, 0}";
+			sepNavVisRect = "{{0, 1279}, {883, 848}}";
+			sepNavWindowFrame = "{{42, 66}, {922, 962}}";
+		};
+	};
+	84BF19280AF02B2D003315B5 /* MyApplication.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {743, 765}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 698}";
+			sepNavVisRect = "{{0, 0}, {763, 779}}";
+			sepNavWindowFrame = "{{130, 25}, {802, 893}}";
+		};
+	};
+	84BF19290AF02B2D003315B5 /* MyApplication.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {802, 3202}}";
+			sepNavSelRange = "{2796, 0}";
+			sepNavVisRange = "{2275, 1072}";
+			sepNavVisRect = "{{0, 4}, {923, 796}}";
+			sepNavWindowFrame = "{{318, -36}, {962, 910}}";
+		};
+	};
+	84BF192D0AF02B79003315B5 /* MyHIDDevice.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {917, 1274}}";
+			sepNavSelRange = "{2421, 0}";
+			sepNavVisRange = "{1852, 1969}";
+			sepNavVisRect = "{{0, 446}, {973, 567}}";
+			sepNavWindowFrame = "{{574, 0}, {976, 944}}";
+		};
+	};
+	84BF192E0AF02B79003315B5 /* MyHIDDevice.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {967, 6704}}";
+			sepNavSelRange = "{9262, 0}";
+			sepNavVisRange = "{8816, 1842}";
+			sepNavVisRect = "{{0, 0}, {983, 867}}";
+			sepNavWindowFrame = "{{561, -473}, {1022, 981}}";
+		};
+	};
+	84E877890AF0013B00707EB8 /* IOHIDPostEventSample */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = IOHIDPostEventSample;
+		sourceDirectories = (
+		);
+	};
+	84E877980AF0014A00707EB8 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+		scmType = "";
+	};
+	84E877990AF0014A00707EB8 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	84FEE28D1019825400F9D89B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 84BF192E0AF02B79003315B5 /* MyHIDDevice.m */;
+		name = "MyHIDDevice.m: 77";
+		rLen = 60;
+		rLoc = 3371;
+		rType = 0;
+		vrLen = 1144;
+		vrLoc = 2873;
+	};
+	84FEE28F1019825400F9D89B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 84BF192E0AF02B79003315B5 /* MyHIDDevice.m */;
+		name = "MyHIDDevice.m: 77";
+		rLen = 60;
+		rLoc = 3371;
+		rType = 0;
+		vrLen = 1144;
+		vrLoc = 2873;
+	};
+	84FEE2901019825400F9D89B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 84BF19290AF02B2D003315B5 /* MyApplication.m */;
+		name = "MyApplication.m: 122";
+		rLen = 0;
+		rLoc = 2796;
+		rType = 0;
+		vrLen = 1072;
+		vrLoc = 2275;
+	};
+	84FEE2951019825400F9D89B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 84BF192E0AF02B79003315B5 /* MyHIDDevice.m */;
+		name = "MyHIDDevice.m: 201";
+		rLen = 16;
+		rLoc = 7121;
+		rType = 0;
+		vrLen = 2087;
+		vrLoc = 6206;
+	};
+	84FEE29A1019825400F9D89B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 84FEE29B1019825400F9D89B /* ev_keymap.h */;
+		name = "ev_keymap.h: 71";
+		rLen = 29;
+		rLoc = 2727;
+		rType = 0;
+		vrLen = 611;
+		vrLoc = 2449;
+	};
+	84FEE29B1019825400F9D89B /* ev_keymap.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = ev_keymap.h;
+		path = /Developer/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/IOKit.framework/Versions/A/Headers/hidsystem/ev_keymap.h;
+		sourceTree = "<absolute>";
+	};
+	84FEE2D0101987BF00F9D89B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 84BF19290AF02B2D003315B5 /* MyApplication.m */;
+		name = "MyApplication.m: 122";
+		rLen = 0;
+		rLoc = 2796;
+		rType = 0;
+		vrLen = 1072;
+		vrLoc = 2275;
+	};
+	84FEE2D3101987BF00F9D89B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 84FEE2D4101987BF00F9D89B /* ev_keymap.h */;
+		name = "ev_keymap.h: 71";
+		rLen = 29;
+		rLoc = 2727;
+		rType = 0;
+		vrLen = 611;
+		vrLoc = 2449;
+	};
+	84FEE2D4101987BF00F9D89B /* ev_keymap.h */ = {
+		isa = PBXFileReference;
+		name = ev_keymap.h;
+		path = /Developer/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/IOKit.framework/Versions/A/Headers/hidsystem/ev_keymap.h;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1373, 2660}}";
+			sepNavSelRange = "{2727, 29}";
+			sepNavVisRange = "{2449, 611}";
+			sepNavWindowFrame = "{{641, 243}, {1432, 439}}";
+		};
+	};
+	84FEE2D5101987BF00F9D89B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 84BF192E0AF02B79003315B5 /* MyHIDDevice.m */;
+		name = "MyHIDDevice.m: 275";
+		rLen = 0;
+		rLoc = 9262;
+		rType = 0;
+		vrLen = 1842;
+		vrLoc = 8816;
+	};
+	8D1107260486CEB800E47090 /* IOHIDPostEventSample */ = {
+		activeExec = 0;
+		executables = (
+			84E877890AF0013B00707EB8 /* IOHIDPostEventSample */,
+		);
+	};
+}

@@ -1,0 +1,259 @@
+TEventTapDump
+v7
+r0
+t318898846.598128
+cCheck dependencies
+cCompileC build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/main.o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/main.c normal ppc c com.apple.compilers.gcc.4_2
+cCompileC build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/eventTap.o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c normal ppc c com.apple.compilers.gcc.4_2
+cLd /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/EventTapDump normal ppc
+cCompileC build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/main.o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/main.c normal i386 c com.apple.compilers.gcc.4_2
+cCompileC build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/eventTap.o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c normal i386 c com.apple.compilers.gcc.4_2
+cLd /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/EventTapDump normal i386
+cCreateUniversalBinary /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development/EventTapDump normal "ppc i386"
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004D3F98AC00000000000000EE
+t1296013484
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.h
+c000000004CC410E50000000000000477
+t1287917797
+s1143
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/CoreGraphics.framework/Headers/CGEvent.h
+c000000004CC40A090000000000003BEC
+t1287916041
+s15340
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/CoreGraphics.framework/Headers/CGEventSource.h
+c000000004CC40A09000000000000279C
+t1287916041
+s10140
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/CoreGraphics.framework/Headers/CGEventTypes.h
+c000000004CC40A0900000000000042C4
+t1287916041
+s17092
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/IOKit.framework/Headers/hidsystem/IOLLEvent.h
+c000000004CC3EAB8000000000000566A
+t1287908024
+s22122
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/IOKit.framework/Headers/hidsystem/ev_keymap.h
+c000000004CC3EAB80000000000001802
+t1287908024
+s6146
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdlib.h
+c000000004BBD2CE90000000000002DF5
+t1270689001
+s11765
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/unistd.h
+c000000004BBD2CE9000000000000563E
+t1270689001
+s22078
+
+N/System/Library/Frameworks/ApplicationServices.framework/ApplicationServices
+c000000004A12050E0000000000022140
+t1242694926
+s139584
+
+N/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+c000000004CD606A40000000000781330
+t1289094820
+s7869232
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development/EventTapDump
+t1297206030
+s35032
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development/EventTapMonitor
+t1297205946
+s35032
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/EventTapDump
+t1297206030
+s14552
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/EventTapDump.LinkFileList
+c000000004D51CB0D0000000000000150
+t1297206029
+s336
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/EventTapMonitor
+t2
+s0
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/EventTapMonitor.LinkFileList
+c00000000000000000000000000000000
+t2
+s0
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/eventTap.o
+t1297206030
+s12764
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/main.o
+t1297206030
+s3768
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/EventTapDump
+t1297206030
+s14656
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/EventTapDump.LinkFileList
+c000000004D51CB0D000000000000014E
+t1297206029
+s334
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/EventTapMonitor
+t2
+s0
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/EventTapMonitor.LinkFileList
+c00000000000000000000000000000000
+t2
+s0
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/eventTap.o
+t1297206030
+s14608
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/main.o
+t1297206030
+s4012
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c
+c000000004A0DE5B20000000000002132
+t1242424754
+s8498
+i"eventTap.h"
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.h
+c0000000047221A150000000000000359
+t1193417237
+s857
+i<CoreGraphics/CGEventTypes.h>
+i<CoreGraphics/CGEventSource.h>
+i<CoreGraphics/CGEvent.h>
+i<iokit/hidsystem/IOLLEvent.h>
+i<IOKit/hidsystem/ev_keymap.h>
+i<ApplicationServices/ApplicationServices.h>
+i<stdlib.h>
+i<unistd.h>
+
+N/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/main.c
+c0000000045414482000000000000018F
+t1161905282
+s399
+i<CoreGraphics/CGEventTypes.h>
+i<CoreGraphics/CGEventSource.h>
+i<CoreGraphics/CGEvent.h>
+i<iokit/hidsystem/IOLLEvent.h>
+i<ApplicationServices/ApplicationServices.h>
+i<stdlib.h>
+i<unistd.h>
+i"eventTap.h"
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies318898846#318898846#0(0"0(0#1#0"27866456492998768#0"0#
+
+CCompileC build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/eventTap.o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c normal i386 c com.apple.compilers.gcc.4_2
+s318898830.446136
+e318898830.911186
+r1
+xCompileC
+xbuild/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/eventTap.o
+x/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.gcc.4_2
+o/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c: In function 'eventCallback':
+o/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c:236: warning: format '%08x' expects type 'unsigned int', but argument 7 has type 'UInt32'
+lSLF07#2@101"Compile /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c318898830#318898830#0(308"/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c: In function 'eventCallback':/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c:236: warning: format '%08x' expects type 'unsigned int', but argument 7 has type 'UInt32'1(22@75"Format '%08x' expects type 'unsigned int', but argument 7 has type 'UInt32'318898830#124#184#0(6@93"/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c264117554#236#0#236#0#56"format '*' expects type '*', but argument * has type '*'0(0#0#93"/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c8607413088#1441"    cd /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.4 -gdwarf-2 -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/EventTapDump.hmap -F/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development -F/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development/include -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/DerivedSources/i386 -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/DerivedSources -c /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c -o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/eventTap.o0#
+
+CCompileC build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/main.o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/main.c normal i386 c com.apple.compilers.gcc.4_2
+s318898830.383997
+e318898830.833680
+r1
+xCompileC
+xbuild/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/main.o
+x/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/main.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@97"Compile /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/main.c318898830#318898830#0(0"0(0#0#89"/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/main.c8607691648#1433"    cd /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.4 -gdwarf-2 -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/EventTapDump.hmap -F/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development -F/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development/include -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/DerivedSources/i386 -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/DerivedSources -c /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/main.c -o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/main.o0#
+
+CCompileC build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/eventTap.o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c normal ppc c com.apple.compilers.gcc.4_2
+s318898829.996301
+e318898830.419385
+r1
+xCompileC
+xbuild/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/eventTap.o
+x/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c
+xnormal
+xppc
+xc
+xcom.apple.compilers.gcc.4_2
+o/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c: In function 'eventCallback':
+o/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c:236: warning: format '%08x' expects type 'unsigned int', but argument 7 has type 'UInt32'
+lSLF07#2@101"Compile /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c318898829#318898830#0(308"/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c: In function 'eventCallback':/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c:236: warning: format '%08x' expects type 'unsigned int', but argument 7 has type 'UInt32'1(22@75"Format '%08x' expects type 'unsigned int', but argument 7 has type 'UInt32'318898830#124#184#0(6@93"/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c264117554#236#0#236#0#56"format '*' expects type '*', but argument * has type '*'0(0#0#93"/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c8604003712#1448"    cd /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mtune=G5 -mmacosx-version-min=10.4 -gdwarf-2 -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/EventTapDump.hmap -F/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development -F/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development/include -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/DerivedSources/ppc -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/DerivedSources -c /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/eventTap.c -o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/eventTap.o0#
+
+CCompileC build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/main.o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/main.c normal ppc c com.apple.compilers.gcc.4_2
+s318898829.992164
+e318898830.383884
+r1
+xCompileC
+xbuild/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/main.o
+x/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/main.c
+xnormal
+xppc
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@97"Compile /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/main.c318898829#318898830#0(0"0(0#0#89"/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/main.c5783828396367228928#1440"    cd /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mtune=G5 -mmacosx-version-min=10.4 -gdwarf-2 -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/EventTapDump.hmap -F/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development -F/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development/include -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/DerivedSources/ppc -I/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/DerivedSources -c /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/main.c -o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/main.o0#
+
+CCreateUniversalBinary /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development/EventTapDump normal "ppc i386"
+s318898830.942394
+e318898830.945386
+r1
+xCreateUniversalBinary
+x/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development/EventTapDump
+xnormal
+xppc i386
+lSLF07#2@70"CreateUniversalBinary build/Development/EventTapDump normal "ppc i386"318898830#318898830#0(0"0(0#0#91"/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/ppc i3868607354944#581"    cd /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump    /usr/bin/lipo -create /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/EventTapDump /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/EventTapDump -output /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development/EventTapDump0#
+
+CCreateUniversalBinary /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development/EventTapMonitor normal "ppc i386"
+r0
+
+CLd /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/EventTapDump normal i386
+s318898830.911291
+e318898830.942291
+r1
+xLd
+x/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/EventTapDump
+xnormal
+xi386
+lSLF07#2@176"Link /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/EventTapDump318898830#318898830#0(0"0(0#0#0"8607585952#984"    cd /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump    setenv MACOSX_DEPLOYMENT_TARGET 10.4    /Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development -F/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development -F/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks -filelist /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/EventTapDump.LinkFileList -mmacosx-version-min=10.4 -framework CoreFoundation -framework ApplicationServices -o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/EventTapDump0#
+
+CLd /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/i386/EventTapMonitor normal i386
+r0
+
+CLd /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/EventTapDump normal ppc
+s318898830.419498
+e318898830.446014
+r1
+xLd
+x/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/EventTapDump
+xnormal
+xppc
+lSLF07#2@175"Link /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/EventTapDump318898830#318898830#0(0"0(0#0#0"8607558464#981"    cd /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump    setenv MACOSX_DEPLOYMENT_TARGET 10.4    /Developer/usr/bin/gcc-4.2 -arch ppc -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development -F/Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/Development -F/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks -filelist /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/EventTapDump.LinkFileList -mmacosx-version-min=10.4 -framework CoreFoundation -framework ApplicationServices -o /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/EventTapDump0#
+
+CLd /Volumes/NextOS/Documents/SampleCodeX/IOHIDPostEventSample/EventTapMonitorDataDump/build/EventTapDump.build/Development/EventTapDump.build/Objects-normal/ppc/EventTapMonitor normal ppc
+r0
+

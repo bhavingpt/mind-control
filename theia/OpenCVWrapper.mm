@@ -127,6 +127,12 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     float right_eye_threshold;
     int right_eye_history;
     bool _right_eye_blinked;
+    
+    float chin_location;
+    int chins;
+    int currentKey;
+    int chin_threshold;
+    bool averaging;
 }
 
 - (id) init {
@@ -143,8 +149,13 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     self->detector = dlib::get_frontal_face_detector();
     self->_resize = 4.0;
     
-    self->right_eye_threshold = 0.2;
+    self->right_eye_threshold = 0.25;
     self->right_eye_history = 0;
+    
+    self->chins = 0;
+    self->currentKey = 0;
+    self->chin_threshold = 20;
+    self->averaging = true;
     
     return self;
 }
@@ -174,7 +185,14 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
         _test = detector(dlibimg);
         if (_test.size() == 0) {
             _counter = -1;
-            std::cout << "lost tracking, resetting" << endl;
+            self->chins = 0;
+            self->averaging = true;
+            std::cout << "lost tracking. chin location unknown" << endl;
+            
+            if (currentKey != 0) {
+                // TODO let go
+                currentKey = 0;
+            }
         }
     }
     _counter += 1;
@@ -193,6 +211,41 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     }
     
     if (_counter != 0) {
+        // check the chin location
+        
+        long curr_location = face.part(8).y();
+        
+        if (chins > 4 && curr_location < (chin_location - chin_threshold) && currentKey == 0) {
+            // we need to move up
+            std::cout << "going up" << endl;
+            currentKey = 2;
+            averaging = false;
+        } else if (chins > 4 && curr_location > (chin_location + chin_threshold) && currentKey == 0) {
+            // we need to move down
+            std::cout << "going down" << endl;
+            currentKey = 1;
+            averaging = false;
+        } else if (currentKey != 0) {
+            if (curr_location > chin_location - chin_threshold && curr_location < chin_location + chin_threshold) {
+                // we are back in range
+                averaging = true;
+                currentKey = 0;
+                std::cout << "back in range" << endl;
+            }
+        }
+        
+        if (averaging) {
+            chins += 1;
+            if (chins == 1) {
+                chin_location = curr_location;
+            } else {
+                chin_location = (chin_location * (chins-1) + curr_location) / chins;
+            }
+        }
+    }
+
+    
+    /*if (_counter != 0) {
         // check the threshold on the right eye
      
         if (right_eye_history == 0) {
@@ -212,15 +265,15 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
             right_eye_history = 0;
         }
      
-        if (right_eye_history == 2) {
+        if (right_eye_history == 3) {
             right_eye_history = 0;
             _right_eye_blinked = true;
         }
-    }
+    }*/
     
     NSImage *result = MatToNSImage(input_gray);
     if (_counter != 0) {
-        std::cout << "frame" << _counter << endl;
+        //std::cout << "frame" << _counter << endl;
     }
     return result;
 }

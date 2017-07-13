@@ -1,0 +1,19 @@
+EventTapSample
+
+Description:
+Demonstrates how to intercept HID events at the HID level and display relevant data pointed to by the opaque CGEventRef parameter. The purpose of this sample is to watch the CGEventRef for the purposes of reverse engineering the use of the IOHIDPostEvent call.
+
+Requirements:
+This sample was built using Xcode 2.4. The EventTap mechanism is available under Mac OS 10.4.x and later.
+
+Usage:
+$sudo ./EventTapMonitor
+
+Note that root privileges are required for the sample to be able to capture keyboard information. An alternate option is to ensure that the "Enable access for Assistive devices" option is set in the Universal Access Control Panel. The tool can still be used without root privilege, however it will only capture mouse movement indications.
+
+
+In order to monitor keyboard events, the tool must be launched with root access, OR the "Enable access for Assistive Devices" option on the Universal Preference control panel must be checked.
+
+The information provided by ths tool is unsupported in that the proper use of the API's is to use the accessor methods. In addition, the information about the SYDEFINED events such as - Eject, Sound Up/Down, Mute, Brightness Up/Down, etc, are not formally documented. The implementation of these special events can be modified in the future. An enhancement request has been submitted to provide an API to distinguish the SYSDEFINE keyboard events.
+
+Refer to the comments in the source which discuss the elements of the data which is pointed to by the CGEventRef.
