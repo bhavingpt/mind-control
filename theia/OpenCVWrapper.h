@@ -13,7 +13,6 @@
 
 @property bool right_eye_blinked;
 
-- (NSImage *)gray:(NSImage*)inputImage;
 - (NSImage *)detect:(NSImage*)inputImage;
 
 @end

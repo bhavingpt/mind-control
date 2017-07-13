@@ -75,7 +75,6 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
     }
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
-        
         // Convert a captured image buffer to NSImage.
         guard let buffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             print("couldn't get pixel buffer")

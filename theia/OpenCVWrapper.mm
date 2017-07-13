@@ -23,56 +23,70 @@ using namespace cv;
 
 /// Converts an NSImage to Mat.
 static void NSImageToMat(NSImage *image, cv::Mat &mat) {
+
+    @autoreleasepool {
+        // Create a pixel buffer. This is the problem.
+        NSBitmapImageRep *bitmapImageRep = [NSBitmapImageRep imageRepWithData:[image TIFFRepresentation]];
+        
+        // get a couple of properties
+        NSInteger width = [bitmapImageRep pixelsWide];
+        NSInteger height = [bitmapImageRep pixelsHigh];
+        
+        CGImageRef imageRef = [bitmapImageRep CGImage];
+        cv::Mat mat8uc4 = cv::Mat((int)height, (int)width, CV_8UC4);
+        
+        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+        CGContextRef contextRef = CGBitmapContextCreate(mat8uc4.data, mat8uc4.cols, mat8uc4.rows, 8, mat8uc4.step, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrderDefault);
+        CGContextDrawImage(contextRef, CGRectMake(0, 0, width, height), imageRef);
+        
+        CGContextRelease(contextRef);
+        CGColorSpaceRelease(colorSpace);
+        
+        // Draw all pixels to the buffer.
+        cv::Mat mat8uc3 = cv::Mat((int)width, (int)height, CV_8UC3);
+        cv::cvtColor(mat8uc4, mat8uc3, CV_RGBA2BGR);
+        
+        mat = mat8uc3;
+    }
     
-    // Create a pixel buffer.
-    NSBitmapImageRep *bitmapImageRep = [NSBitmapImageRep imageRepWithData:[image TIFFRepresentation]];
-    NSInteger width = [bitmapImageRep pixelsWide];
-    NSInteger height = [bitmapImageRep pixelsHigh];
-    CGImageRef imageRef = [bitmapImageRep CGImage];
-    cv::Mat mat8uc4 = cv::Mat((int)height, (int)width, CV_8UC4);
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef contextRef = CGBitmapContextCreate(mat8uc4.data, mat8uc4.cols, mat8uc4.rows, 8, mat8uc4.step, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrderDefault);
-    CGContextDrawImage(contextRef, CGRectMake(0, 0, width, height), imageRef);
-    CGContextRelease(contextRef);
-    CGColorSpaceRelease(colorSpace);
-    
-    // Draw all pixels to the buffer.
-    cv::Mat mat8uc3 = cv::Mat((int)width, (int)height, CV_8UC3);
-    cv::cvtColor(mat8uc4, mat8uc3, CV_RGBA2BGR);
-    
-    mat = mat8uc3;
 }
 
 /// Converts a Mat to NSImage.
 static NSImage *MatToNSImage(cv::Mat &mat) {
     
-    // Create a pixel buffer.
-    assert(mat.elemSize() == 1 || mat.elemSize() == 3);
-    cv::Mat matrgb;
-    if (mat.elemSize() == 1) {
-        cv::cvtColor(mat, matrgb, CV_GRAY2RGB);
-    } else if (mat.elemSize() == 3) {
-        cv::cvtColor(mat, matrgb, CV_BGR2RGB);
+    @autoreleasepool {
+        
+        NSImage *image = [[NSImage alloc]init];
+
+        // Create a pixel buffer.
+        assert(mat.elemSize() == 1 || mat.elemSize() == 3);
+        cv::Mat matrgb;
+        if (mat.elemSize() == 1) {
+            cv::cvtColor(mat, matrgb, CV_GRAY2RGB);
+        } else if (mat.elemSize() == 3) {
+            cv::cvtColor(mat, matrgb, CV_BGR2RGB);
+        }
+        
+        // Change a image format.
+        NSData *data = [NSData dataWithBytes:matrgb.data length:(matrgb.elemSize() * matrgb.total())];
+        CGColorSpaceRef colorSpace;
+        if (matrgb.elemSize() == 1) {
+            colorSpace = CGColorSpaceCreateDeviceGray();
+        } else {
+            colorSpace = CGColorSpaceCreateDeviceRGB();
+        }
+        CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
+        CGImageRef imageRef = CGImageCreate(matrgb.cols, matrgb.rows, 8, 8 * matrgb.elemSize(), matrgb.step.p[0], colorSpace, kCGImageAlphaNone|kCGBitmapByteOrderDefault, provider, NULL, false, kCGRenderingIntentDefault);
+        NSBitmapImageRep *bitmapImageRep = [[NSBitmapImageRep alloc] initWithCGImage:imageRef];
+        [image addRepresentation:bitmapImageRep];
+        CGImageRelease(imageRef);
+        CGDataProviderRelease(provider);
+        CGColorSpaceRelease(colorSpace);
+        
+        return image;
     }
     
-    // Change a image format.
-    NSData *data = [NSData dataWithBytes:matrgb.data length:(matrgb.elemSize() * matrgb.total())];
-    CGColorSpaceRef colorSpace;
-    if (matrgb.elemSize() == 1) {
-        colorSpace = CGColorSpaceCreateDeviceGray();
-    } else {
-        colorSpace = CGColorSpaceCreateDeviceRGB();
-    }
-    CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
-    CGImageRef imageRef = CGImageCreate(matrgb.cols, matrgb.rows, 8, 8 * matrgb.elemSize(), matrgb.step.p[0], colorSpace, kCGImageAlphaNone|kCGBitmapByteOrderDefault, provider, NULL, false, kCGRenderingIntentDefault);
-    NSBitmapImageRep *bitmapImageRep = [[NSBitmapImageRep alloc] initWithCGImage:imageRef];
-    NSImage *image = [[NSImage alloc]init];
-    [image addRepresentation:bitmapImageRep];
-    CGImageRelease(imageRef);
-    CGDataProviderRelease(provider);
-    CGColorSpaceRelease(colorSpace);
     
-    return image;
 }
 
 static void draw_polyline(cv::Mat &img, const dlib::full_object_detection& d, const int start, const int end, bool isClosed = false)
@@ -133,6 +147,11 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     int currentKey;
     int chin_threshold;
     bool averaging;
+    
+    Mat input_color;
+    Mat input_gray;
+    Mat input;
+    
 }
 
 - (id) init {
@@ -157,23 +176,12 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     self->chin_threshold = 20;
     self->averaging = true;
     
+    //self->result = [[NSImage alloc]init];
+    
     return self;
 }
 
-- (NSImage*) gray:(NSImage*) pic {
-    Mat input;
-    NSImageToMat(pic, input);
-    Mat output;
-    cvtColor(input, output, CV_BGR2GRAY);
-    
-    NSImage *result = MatToNSImage(output);
-    return result;
-}
-
 - (NSImage*) detect:(NSImage*) pic {
-    Mat input_color;
-    Mat input_gray;
-    Mat input;
     NSImageToMat(pic, input_color);
     cvtColor(input_color, input_gray, CV_BGR2GRAY);
     cv::resize(input_gray, input, cv::Size(), 1.0/_resize, 1.0/_resize);
@@ -199,11 +207,11 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     
     for (int j = 0; j < _test.size(); ++j) {
         dlib::rectangle r(
-                    (long)(_test[j].left() * _resize),
-                    (long)(_test[j].top() * _resize),
-                    (long)(_test[j].right() * _resize),
-                    (long)(_test[j].bottom() * _resize)
-                    );
+                          (long)(_test[j].left() * _resize),
+                          (long)(_test[j].top() * _resize),
+                          (long)(_test[j].right() * _resize),
+                          (long)(_test[j].bottom() * _resize)
+                          );
         
         face = sp(dlibimage, r);
         
@@ -243,39 +251,39 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
             }
         }
     }
-
+    
     
     /*if (_counter != 0) {
-        // check the threshold on the right eye
+     // check the threshold on the right eye
      
-        if (right_eye_history == 0) {
-            _right_eye_blinked = false;
-        }
+     if (right_eye_history == 0) {
+     _right_eye_blinked = false;
+     }
      
-        float a = dist(face.part(37), face.part(41));
-        float b = dist(face.part(38), face.part(40));
-        float c = dist(face.part(36), face.part(39));
+     float a = dist(face.part(37), face.part(41));
+     float b = dist(face.part(38), face.part(40));
+     float c = dist(face.part(36), face.part(39));
      
-        float received_value = (a + b) / (2 * c);
-        std::cout << received_value << endl;
+     float received_value = (a + b) / (2 * c);
+     std::cout << received_value << endl;
      
-        if (received_value < right_eye_threshold) {
-            right_eye_history += 1;
-        } else {
-            right_eye_history = 0;
-        }
+     if (received_value < right_eye_threshold) {
+     right_eye_history += 1;
+     } else {
+     right_eye_history = 0;
+     }
      
-        if (right_eye_history == 3) {
-            right_eye_history = 0;
-            _right_eye_blinked = true;
-        }
-    }*/
+     if (right_eye_history == 3) {
+     right_eye_history = 0;
+     _right_eye_blinked = true;
+     }
+     }*/
     
-    NSImage *result = MatToNSImage(input_gray);
-    if (_counter != 0) {
-        //std::cout << "frame" << _counter << endl;
+    @autoreleasepool {
+        NSImage *result = MatToNSImage(input_gray);
+        return result;
     }
-    return result;
+    
 }
 
 @end
