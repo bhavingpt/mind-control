@@ -69,8 +69,10 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
     }
     
     private func detectChanges() {
-        if (cv2.right_eye_blinked) {
-            tapButton(button: 34);
+        if (cv2.raiseKey != 0) {
+            // TODO push the desired key
+        } else if (cv2.pushKey != 0) {
+            // TODO raise the desired key
         }
     }
     
