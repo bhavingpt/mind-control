@@ -61,25 +61,23 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
     
     public func startCamera() {
         self.session.startRunning()
-        hid.postKeyCodeEvent(0x0e, true, false);
     }
     
     public func stopCamera() {
         if (self.session.isRunning) {
             self.session.stopRunning()
-            hid.postKeyCodeEvent(0x0e, false, false);
         }
     }
     
     private func detectChanges() {
         if (cv2.currentKey == 2) {
-            for _ in 0...2 {
+            for _ in 0...cv2.displacement {
                 self.hid.postKeyCodeEvent(0x28, true, true);
                 self.hid.postKeyCodeEvent(0x28, false, true);
             }
             
         } else if (cv2.currentKey == 1) {
-            for _ in 0...2 {
+            for _ in 0...cv2.displacement {
                 self.hid.postKeyCodeEvent(0x26, true, true);
                 self.hid.postKeyCodeEvent(0x26, false, true);
             }
@@ -93,7 +91,7 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
             return
         }
         CVPixelBufferLockBaseAddress(buffer, CVPixelBufferLockFlags.readOnly)
-        let imageRep = NSCIImageRep(ciImajjjjjjjjjjjjjjjjjjjjjjjjge: CIImage(cvImageBuffer: buffer))
+        let imageRep = NSCIImageRep(ciImage: CIImage(cvImageBuffer: buffer))
         let capturedImage = NSImage(size: imageRep.size)
         capturedImage.addRepresentation(imageRep)
         CVPixelBufferUnlockBaseAddress(buffer, CVPixelBufferLockFlags.readOnly)

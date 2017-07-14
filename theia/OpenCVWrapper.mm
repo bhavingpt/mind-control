@@ -145,6 +145,7 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     float chin_location;
     int chins;
     int _currentKey;
+    int _displacement;
     
     int up_thresh;
     int down_thresh;
@@ -175,6 +176,7 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     
     self->chins = 0;
     self->_currentKey = 0;
+    self->_displacement = 0;
     
     self->up_thresh = 10;
     self->down_thresh = 7;
@@ -230,6 +232,17 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
             // we need to move up
             _currentKey = 2;
             averaging = false;
+            
+            if (chin_location - curr_location < up_thresh * 1.5) {
+                _displacement = 1;
+            } else if (chin_location - curr_location < up_thresh * 2) {
+                _displacement = 2;
+            } else if (chin_location - curr_location < up_thresh * 2.5) {
+                _displacement = 3;
+            } else {
+                _displacement = 5;
+            }
+            
             std::cout << "detected above. we're at: " << curr_location << " average: " << chin_location << endl;
 
         } else if (chins > 15 && curr_location > (chin_location + down_thresh)) {
@@ -237,6 +250,16 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
             _currentKey = 1;
             averaging = false;
             std::cout << "detected below. we're at: " << curr_location << " average: " << chin_location << endl;
+            
+            if (curr_location - chin_location < down_thresh * 1.5) {
+                _displacement = 1;
+            } else  if (curr_location - chin_location < down_thresh * 2) {
+                _displacement = 2;
+            } else  if (curr_location - chin_location < down_thresh * 2.5) {
+                _displacement = 3;
+            } else {
+                _displacement = 5;
+            }
         }
         
         if (averaging) {

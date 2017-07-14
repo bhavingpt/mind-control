@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let info = notification.userInfo,
             let app = info[NSWorkspaceApplicationKey] as? NSRunningApplication,
             let name = app.localizedName {
-            if ((name == "Instruments" || name == "Xcode" || name == "Emacs") && vc != nil) {
+            if (name == "Emacs" && vc != nil) {
                 vc!.startCamera()
             } else if (vc != nil){
                 vc!.stopCamera()

@@ -12,7 +12,9 @@
 @interface OpenCVWrapper : NSObject
 
 @property bool right_eye_blinked;
+
 @property int currentKey;
+@property int displacement;
 
 - (NSImage *)detect:(NSImage*)inputImage;
 
