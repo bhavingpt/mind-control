@@ -18,6 +18,7 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
     var device: AVCaptureDevice!
     var output: AVCaptureVideoDataOutput!
     var cv2: OpenCVWrapper = OpenCVWrapper()
+    var hid: MyHIDDevice = MyHIDDevice()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,19 +61,23 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
     
     public func startCamera() {
         self.session.startRunning()
+        hid.postKeyCodeEvent(0x0e, true, false);
     }
     
     public func stopCamera() {
         if (self.session.isRunning) {
             self.session.stopRunning()
+            hid.postKeyCodeEvent(0x0e, false, false);
         }
     }
     
     private func detectChanges() {
-        if (cv2.raiseKey != 0) {
-            // TODO push the desired key
-        } else if (cv2.pushKey != 0) {
-            // TODO raise the desired key
+        if (cv2.pushKey != 0) {
+            //print ("posting");
+            //hid.postKeyCodeEvent(0x0e, true, true);
+        } else if (cv2.raiseKey != 0) {
+            //print ("releasing");
+            //hid.postKeyCodeEvent(0x0e, false, true);
         }
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F134FA321F186DA700157572 /* MyHIDDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F134FA311F186DA700157572 /* MyHIDDevice.m */; };
 		F17E14C51F0AC83D000515E5 /* libdlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F17E14C31F0AC57F000515E5 /* libdlib.a */; };
 		F18970551F04DC37007B3E65 /* shape_predictor_68_face_landmarks.dat in Resources */ = {isa = PBXBuildFile; fileRef = F18970541F04DC37007B3E65 /* shape_predictor_68_face_landmarks.dat */; };
 		F1AB06701F02B8AC0054EC41 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AB066F1F02B8AC0054EC41 /* opencv2.framework */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F134FA301F186DA700157572 /* MyHIDDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHIDDevice.h; sourceTree = "<group>"; };
+		F134FA311F186DA700157572 /* MyHIDDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHIDDevice.m; sourceTree = "<group>"; };
 		F17E14C31F0AC57F000515E5 /* libdlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdlib.a; path = lib/libdlib.a; sourceTree = "<group>"; };
 		F18970541F04DC37007B3E65 /* shape_predictor_68_face_landmarks.dat */ = {isa = PBXFileReference; lastKnownFileType = file; name = shape_predictor_68_face_landmarks.dat; path = theia/shape_predictor_68_face_landmarks.dat; sourceTree = "<group>"; };
 		F1AB066F1F02B8AC0054EC41 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 				F1E239B21F022092005A402A /* Main.storyboard */,
 				F1E239B51F022092005A402A /* Info.plist */,
 				F1E239BD1F0220AF005A402A /* theia-Bridging-Header.h */,
+				F134FA301F186DA700157572 /* MyHIDDevice.h */,
+				F134FA311F186DA700157572 /* MyHIDDevice.m */,
 			);
 			path = theia;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				F1E239AF1F022092005A402A /* PlaybackViewController.swift in Sources */,
 				F1E239AD1F022092005A402A /* AppDelegate.swift in Sources */,
 				F1E239C01F0220AF005A402A /* OpenCVWrapper.mm in Sources */,
+				F134FA321F186DA700157572 /* MyHIDDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

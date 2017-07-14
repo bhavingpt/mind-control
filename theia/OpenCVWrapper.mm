@@ -260,9 +260,7 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
             }
         }
         
-        float test_threshold = 0.75 * (up_thresh + down_thresh) / 2;
-        
-        if (averaging && (chins == 0 || (curr_location < chin_location + test_threshold && curr_location > chin_location - test_threshold ))) {
+        if (averaging) {
             chins += 1;
             if (chins == 1) {
                 chin_location = curr_location;
