@@ -144,14 +144,11 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     
     float chin_location;
     int chins;
-    int currentKey;
+    int _currentKey;
     
     int up_thresh;
     int down_thresh;
     bool averaging;
-    
-    int _pushKey;
-    int _raiseKey;
     
     Mat input_color;
     Mat input_gray;
@@ -177,10 +174,7 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     self->right_eye_history = 0;
     
     self->chins = 0;
-    self->currentKey = 0;
-    
-    self->_pushKey = 0;
-    self->_raiseKey = 0;
+    self->_currentKey = 0;
     
     self->up_thresh = 10;
     self->down_thresh = 7;
@@ -193,8 +187,8 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
 
 - (NSImage*) detect:(NSImage*) pic {
     
-    _pushKey = 0;
-    _raiseKey = 0;
+    _currentKey = 0;
+    averaging = true;
     
     NSImageToMat(pic, input_color);
     cvtColor(input_color, input_gray, CV_BGR2GRAY);
@@ -210,11 +204,6 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
             self->chins = 0;
             self->averaging = true;
             std::cout << "lost tracking. chin location unknown" << endl;
-            
-            if (currentKey != 0) {
-                _raiseKey = currentKey;
-                currentKey = 0;
-            }
         }
     }
     _counter += 1;
@@ -237,27 +226,17 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
         
         long curr_location = face.part(8).y();
         
-        if (chins > 15 && curr_location < (chin_location - up_thresh) && currentKey == 0) {
+        if (chins > 15 && curr_location < (chin_location - up_thresh)) {
             // we need to move up
-            _pushKey = 2;
-            currentKey = 2;
+            _currentKey = 2;
             averaging = false;
-            std::cout << "moving up. at: " << curr_location << " average: " << chin_location << endl;
+            std::cout << "detected above. we're at: " << curr_location << " average: " << chin_location << endl;
 
-        } else if (chins > 15 && curr_location > (chin_location + down_thresh) && currentKey == 0) {
+        } else if (chins > 15 && curr_location > (chin_location + down_thresh)) {
             // we need to move down
-            _pushKey = 1;
-            currentKey = 1;
+            _currentKey = 1;
             averaging = false;
-            std::cout << "moving down. at: " << curr_location << " average: " << chin_location << endl;
-        } else if (currentKey != 0) {
-            if (curr_location > chin_location - up_thresh && curr_location < chin_location + down_thresh) {
-                // we are back in range
-                std::cout << "back in range. at: " << curr_location << " average: " << chin_location << endl;
-                averaging = true;
-                _raiseKey = currentKey;
-                currentKey = 0;
-            }
+            std::cout << "detected below. we're at: " << curr_location << " average: " << chin_location << endl;
         }
         
         if (averaging) {

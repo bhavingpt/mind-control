@@ -72,12 +72,17 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
     }
     
     private func detectChanges() {
-        if (cv2.pushKey != 0) {
-            //print ("posting");
-            //hid.postKeyCodeEvent(0x0e, true, true);
-        } else if (cv2.raiseKey != 0) {
-            //print ("releasing");
-            //hid.postKeyCodeEvent(0x0e, false, true);
+        if (cv2.currentKey == 2) {
+            for _ in 0...2 {
+                self.hid.postKeyCodeEvent(0x28, true, true);
+                self.hid.postKeyCodeEvent(0x28, false, true);
+            }
+            
+        } else if (cv2.currentKey == 1) {
+            for _ in 0...2 {
+                self.hid.postKeyCodeEvent(0x26, true, true);
+                self.hid.postKeyCodeEvent(0x26, false, true);
+            }
         }
     }
     
@@ -88,7 +93,7 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
             return
         }
         CVPixelBufferLockBaseAddress(buffer, CVPixelBufferLockFlags.readOnly)
-        let imageRep = NSCIImageRep(ciImage: CIImage(cvImageBuffer: buffer))
+        let imageRep = NSCIImageRep(ciImajjjjjjjjjjjjjjjjjjjjjjjjge: CIImage(cvImageBuffer: buffer))
         let capturedImage = NSImage(size: imageRep.size)
         capturedImage.addRepresentation(imageRep)
         CVPixelBufferUnlockBaseAddress(buffer, CVPixelBufferLockFlags.readOnly)
