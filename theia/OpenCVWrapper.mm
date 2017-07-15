@@ -146,6 +146,7 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     int chins;
     int _currentKey;
     int _displacement;
+    int _detection;
     
     int up_thresh;
     int down_thresh;
@@ -177,9 +178,10 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     self->chins = 0;
     self->_currentKey = 0;
     self->_displacement = 0;
+    self->_detection = 0;
     
-    self->up_thresh = 10;
-    self->down_thresh = 7;
+    self->up_thresh = 25;
+    self->down_thresh = 20;
     self->averaging = true;
     
     //self->result = [[NSImage alloc]init];
@@ -191,6 +193,7 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     
     _currentKey = 0;
     averaging = true;
+    _detection = 0;
     
     NSImageToMat(pic, input_color);
     cvtColor(input_color, input_gray, CV_BGR2GRAY);
@@ -206,8 +209,16 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
             self->chins = 0;
             self->averaging = true;
             std::cout << "lost tracking. chin location unknown" << endl;
+            _detection = -1;
         }
     }
+    
+    if (_counter != -1 && _counter % 12 == 11) {
+        _detection = 1; // we are about to detect
+    } else if (_counter % 12 == 0) {
+        _detection = -1; // we have just detected
+    }
+    
     _counter += 1;
     
     for (int j = 0; j < _test.size(); ++j) {
@@ -243,13 +254,13 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
                 _displacement = 5;
             }
             
-            std::cout << "detected above. we're at: " << curr_location << " average: " << chin_location << endl;
+            //std::cout << "detected above. we're at: " << curr_location << " average: " << chin_location << endl;
 
         } else if (chins > 15 && curr_location > (chin_location + down_thresh)) {
             // we need to move down
             _currentKey = 1;
             averaging = false;
-            std::cout << "detected below. we're at: " << curr_location << " average: " << chin_location << endl;
+            //std::cout << "detected below. we're at: " << curr_location << " average: " << chin_location << endl;
             
             if (curr_location - chin_location < down_thresh * 1.5) {
                 _displacement = 1;
@@ -260,13 +271,15 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
             } else {
                 _displacement = 5;
             }
+        } else {
+            _detection = -1;
         }
         
         if (averaging) {
             chins += 1;
             if (chins == 1) {
                 chin_location = curr_location;
-                std::cout << "located chin at: " << curr_location << endl;
+                //std::cout << "located chin at: " << curr_location << endl;
             } else {
                 chin_location = (chin_location * (chins-1) + curr_location) / chins;
             }

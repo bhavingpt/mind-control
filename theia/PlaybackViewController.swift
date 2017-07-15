@@ -20,6 +20,10 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
     var cv2: OpenCVWrapper = OpenCVWrapper()
     var hid: MyHIDDevice = MyHIDDevice()
     
+    var key = 0x0;
+    
+    var queue: DispatchQueue?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,29 +61,61 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
             return
         }
         
+        /*queue.async {
+            while(true) {
+                print ("jsut check");
+                if (self.move) {
+                    for _ in 0...self.cv2.displacement {
+                        self.hid.postKeyCodeEvent(UInt16(self.key), true, true);
+                        self.hid.postKeyCodeEvent(UInt16(self.key), false, true);
+                    }
+                    
+                    usleep(50000);
+                }
+            }
+        }*/
+        
     }
     
     public func startCamera() {
         self.session.startRunning()
+        queue = nil;
     }
     
     public func stopCamera() {
         if (self.session.isRunning) {
             self.session.stopRunning()
+            queue = nil;
         }
     }
     
     private func detectChanges() {
         if (cv2.currentKey == 2) {
-            for _ in 0...cv2.displacement {
-                self.hid.postKeyCodeEvent(0x28, true, true);
-                self.hid.postKeyCodeEvent(0x28, false, true);
-            }
-            
+            key = 0x28;
         } else if (cv2.currentKey == 1) {
-            for _ in 0...cv2.displacement {
-                self.hid.postKeyCodeEvent(0x26, true, true);
-                self.hid.postKeyCodeEvent(0x26, false, true);
+            key = 0x26;
+        } else {
+            return;
+        }
+        
+        for _ in 0...cv2.displacement {
+            self.hid.postKeyCodeEvent(UInt16(key), true, true);
+            self.hid.postKeyCodeEvent(UInt16(key), false, true);
+        }
+        
+        if (cv2.detection == 1) {
+            let queue = DispatchQueue(label: "com.theia.emacs", qos: DispatchQoS.background);
+            queue.async {
+                let savedKey = self.key;
+                
+                while(self.cv2.detection != -1) {
+                    for _ in 0...self.cv2.displacement {
+                        self.hid.postKeyCodeEvent(UInt16(savedKey), true, true);
+                        self.hid.postKeyCodeEvent(UInt16(savedKey), false, true);
+                    }
+                    
+                    usleep(50000);
+                }
             }
         }
     }
@@ -122,7 +158,6 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
         let event = CGEvent(keyboardEventSource: nil, virtualKey: button, keyDown: false)
         event?.post(tap: CGEventTapLocation.cgSessionEventTap)
     }
-
 
 }
 

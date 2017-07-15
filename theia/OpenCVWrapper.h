@@ -15,6 +15,7 @@
 
 @property int currentKey;
 @property int displacement;
+@property int detection;
 
 - (NSImage *)detect:(NSImage*)inputImage;
 
