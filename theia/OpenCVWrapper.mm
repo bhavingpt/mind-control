@@ -180,8 +180,8 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     self->_displacement = 0;
     self->_detection = 0;
     
-    self->up_thresh = 25;
-    self->down_thresh = 20;
+    self->up_thresh = 15;
+    self->down_thresh = 10;
     self->averaging = true;
     
     //self->result = [[NSImage alloc]init];
@@ -202,21 +202,17 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     dlib::cv_image<uchar> dlibimg(input);
     dlib::cv_image<uchar> dlibimage(input_gray);
     
-    if (_counter % 12 == 0) {
+    if (_counter % 15 == 0) {
         _test = detector(dlibimg);
+        _detection = -1;
         if (_test.size() == 0) {
             _counter = -1;
             self->chins = 0;
             self->averaging = true;
             std::cout << "lost tracking. chin location unknown" << endl;
-            _detection = -1;
         }
-    }
-    
-    if (_counter != -1 && _counter % 12 == 11) {
+    } else if (_counter % 15 == 14) {
         _detection = 1; // we are about to detect
-    } else if (_counter % 12 == 0) {
-        _detection = -1; // we have just detected
     }
     
     _counter += 1;

@@ -31,7 +31,7 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
         self.imageView.setContentCompressionResistancePriority(250, for: NSLayoutConstraintOrientation.vertical)
 
         self.session = AVCaptureSession()
-        self.session.sessionPreset = AVCaptureSessionPresetLow
+        self.session.sessionPreset = AVCaptureSessionPresetiFrame1280x720
         for device in AVCaptureDevice.devices() {
             self.device = device as! AVCaptureDevice
         }
@@ -61,31 +61,19 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
             return
         }
         
-        /*queue.async {
-            while(true) {
-                print ("jsut check");
-                if (self.move) {
-                    for _ in 0...self.cv2.displacement {
-                        self.hid.postKeyCodeEvent(UInt16(self.key), true, true);
-                        self.hid.postKeyCodeEvent(UInt16(self.key), false, true);
-                    }
-                    
-                    usleep(50000);
-                }
-            }
-        }*/
-        
     }
     
     public func startCamera() {
         self.session.startRunning()
         queue = nil;
+        cv2.detection = -1;
     }
     
     public func stopCamera() {
         if (self.session.isRunning) {
             self.session.stopRunning()
             queue = nil;
+            cv2.detection = -1;
         }
     }
     
@@ -110,6 +98,9 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
                 
                 while(self.cv2.detection != -1) {
                     for _ in 0...self.cv2.displacement {
+                        if (self.cv2.detection == -1) {
+                            break
+                        }
                         self.hid.postKeyCodeEvent(UInt16(savedKey), true, true);
                         self.hid.postKeyCodeEvent(UInt16(savedKey), false, true);
                     }
