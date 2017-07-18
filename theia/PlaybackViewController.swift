@@ -92,7 +92,7 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
         }
         
         if (cv2.detection == 1) {
-            let queue = DispatchQueue(label: "com.theia.emacs", qos: DispatchQoS.background);
+            let queue = DispatchQueue(label: "com.theia.emacs", qos: DispatchQoS.userInteractive);
             queue.async {
                 let savedKey = self.key;
                 

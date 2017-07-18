@@ -205,6 +205,7 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     if (_counter % 15 == 0) {
         _test = detector(dlibimg);
         _detection = -1;
+
         if (_test.size() == 0) {
             _counter = -1;
             self->chins = 0;
@@ -212,7 +213,7 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
             std::cout << "lost tracking. chin location unknown" << endl;
         }
     } else if (_counter % 15 == 14) {
-        _detection = 1; // we are about to detect
+        _detection = 1; // we are about to detect. May be a problem w autoscroll up -> autoscroll down
     }
     
     _counter += 1;
