@@ -16,6 +16,7 @@
 @property int currentKey;
 @property int displacement;
 @property int detection;
+@property int autoscroll;
 
 - (NSImage *)detect:(NSImage*)inputImage;
 

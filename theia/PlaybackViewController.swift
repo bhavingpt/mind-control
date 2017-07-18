@@ -92,6 +92,8 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
         }
         
         if (cv2.detection == 1) {
+            cv2.autoscroll = cv2.currentKey;
+            
             let queue = DispatchQueue(label: "com.theia.emacs", qos: DispatchQoS.userInteractive);
             queue.async {
                 let savedKey = self.key;
@@ -107,6 +109,8 @@ class PlaybackViewController: NSViewController, AVCaptureVideoDataOutputSampleBu
                     
                     usleep(50000);
                 }
+                
+                self.cv2.autoscroll = 0;
             }
         }
     }

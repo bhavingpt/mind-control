@@ -147,6 +147,7 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     int _currentKey;
     int _displacement;
     int _detection;
+    int _autoscroll;
     
     int up_thresh;
     int down_thresh;
@@ -171,6 +172,7 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     
     self->detector = dlib::get_frontal_face_detector();
     self->_resize = 4.0;
+    self->_autoscroll = 0;
     
     self->right_eye_threshold = 0.25;
     self->right_eye_history = 0;
@@ -181,7 +183,7 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     self->_detection = 0;
     
     self->up_thresh = 15;
-    self->down_thresh = 10;
+    self->down_thresh = 7;
     self->averaging = true;
     
     //self->result = [[NSImage alloc]init];
@@ -194,6 +196,7 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
     _currentKey = 0;
     averaging = true;
     _detection = 0;
+    bool good_to_go = true;
     
     NSImageToMat(pic, input_color);
     cvtColor(input_color, input_gray, CV_BGR2GRAY);
@@ -208,12 +211,11 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
 
         if (_test.size() == 0) {
             _counter = -1;
+            good_to_go = false;
             self->chins = 0;
             self->averaging = true;
             std::cout << "lost tracking. chin location unknown" << endl;
         }
-    } else if (_counter % 15 == 14) {
-        _detection = 1; // we are about to detect. May be a problem w autoscroll up -> autoscroll down
     }
     
     _counter += 1;
@@ -281,6 +283,10 @@ static void render_face (cv::Mat &img, const dlib::full_object_detection& d)
                 chin_location = (chin_location * (chins-1) + curr_location) / chins;
             }
         }
+    }
+    
+    if (good_to_go && _counter % 15 == 0 && (_autoscroll == 0 || _autoscroll == _currentKey)) {
+        _detection = 1; // we are about to detect.
     }
     
     
